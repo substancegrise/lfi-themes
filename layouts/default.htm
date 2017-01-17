@@ -1,0 +1,50 @@
+description = "Default layout"
+
+[session]
+security = "all"
+
+
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>October CMS - {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="October CMS">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{{ 'assets/images/lfi.png'|theme }}" />
+        {% styles %}
+        <link href="{{ [
+            'assets/css/style.css'
+        ]|theme }}" rel="stylesheet">
+    </head>
+    <body>
+
+        {% partial "header" %}
+        {% set Texture = random(['carbon', 'dustnscratches', 'elegant', 'grunge', 'leather', 'lines', 'plaid', 'wood']) %}
+
+        <!-- Content -->
+        <section id="layout-content" class="container clearfix">
+                <div class="container">
+                    <h1>{{ this.page.title }}</h1>
+                    <p>{{ this.page.description }}</p>
+                </div>
+            <div class="container">
+                {% page %}
+            </div>
+        </section>
+
+        {% partial "footer" %}
+
+
+        <!-- Scripts -->
+        <script src="{{ [
+            'assets/js/jquery.js',
+            'assets/js/app.js'
+        ]|theme }}"></script>
+        {% framework extras %}
+        {% scripts %}
+    </body>
+</html>

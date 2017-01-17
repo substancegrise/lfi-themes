@@ -1,0 +1,11 @@
+<header class="">
+    <div class="">
+        <h1 class="logo">LFI LOGO</h1>
+        <nav class="">
+            <ul>
+                <li class="{% if this.page.id == 'accueil' %} active  {% endif %}"><a href="{{ 'accueil'|page }}">accueil</a></li>
+                <li class="{% if this.page.id == 'formations' %} active {% endif %}"><a href="{{ 'formations'|page }}">formations</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

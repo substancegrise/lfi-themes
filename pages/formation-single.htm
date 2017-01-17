@@ -1,0 +1,43 @@
+title = "single formation"
+url = "/formation/:slug"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Lfi\Formations\Models\Formation"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "name"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record %}
+    <h2>{{ record.name }}</h2>
+
+{% for categorie in record.categories %}
+    <h4>{{categorie.formation_category}}</h4>
+{% endfor %}
+
+<h4>{{ record.subtitle }}</h4>
+<h4>{{ record.level }}</h4>
+
+
+<h3>FORMATION DU</h3>
+    <div>{{ record.start }}</div>
+    <div>{{ record.end }}</div>
+
+<h3>CANDIDATURE DU</h3>
+<div>{{ record.candidate_start }}</div>
+<div>{{ record.candidate_end }}</div>
+
+
+
+
+    <img src="{{ record.imgright.thumb(175,535, {'mode':'crop'}) }}">
+    <img src="{{ record.imgcenter.thumb(960,255, {'mode':'crop'}) }}">
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}

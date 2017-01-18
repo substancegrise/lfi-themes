@@ -1,6 +1,6 @@
 <!-- Nav -->
-<nav id="layout-nav" class="navbar navbar-inverse navbar-fixed-top navbar-autohide" role="navigation">
-    <div class="container">
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -23,10 +23,13 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
-            <hr>
-            <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-            <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            <div class="container-fluid">
+                <h1>{{ this.page.title }}</h1>
+                <div class="scroll-down">
+                    <a href="#" class="pointe">DÉCOUVRIR</a>
+                    <a class="apointe"><img src="/themes/lfi/assets/images/next_blanc.png"></a>
+                </div>
+            </div>
         </div>
     </div>
 </header>

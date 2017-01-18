@@ -1058,7 +1058,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "Lato";
+  font-family: "LatoLight";
   font-size: 16px;
   line-height: 1.3;
   color: #000;
@@ -1139,10 +1139,10 @@ hr {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "MelbourneBold";
+  font-family: "Melbourne";
   font-weight: 500;
   line-height: 1.3;
-  color: inherit; }
+  color: #e1261c; }
   h1 small,
   h1 .small, h2 small,
   h2 .small, h3 small,
@@ -1197,7 +1197,7 @@ h1, .h1 {
   font-size: 40px; }
 
 h2, .h2 {
-  font-size: 30px; }
+  font-size: 48px; }
 
 h3, .h3 {
   font-size: 26px; }
@@ -5065,7 +5065,7 @@ button.close {
   position: absolute;
   z-index: 1030;
   display: block;
-  font-family: "Lato";
+  font-family: "LatoLight";
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;

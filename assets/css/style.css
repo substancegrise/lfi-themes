@@ -1,0 +1,15 @@
+/* Fonts */
+@font-face {
+    font-family: Melbourne;
+    src: url('../assets/fonts/lfi/Melbourne_regular_basic.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/lfi/Melbourne_regular_basic.woff') format('woff'),
+    url('../assets/fonts/lfi/Melbourne_regular_basic.ttf')  format('truetype'),
+    url('../assets/fonts/lfi/Melbourne_regular_basic.svg') format('svg');
+}
+@font-face {
+    font-family: MelbourneBold;
+    src: url('../assets/fonts/lfi/Melbourne_bold_basic.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/lfi/Melbourne_bold_basic.woff') format('woff'),
+    url('../assets/fonts/lfi/Melbourne_bold_basic.ttf')  format('truetype'),
+    url('../assets/fonts/lfi/Melbourne_bold_basic.svg') format('svg');
+}

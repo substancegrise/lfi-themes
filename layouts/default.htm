@@ -17,7 +17,8 @@ security = "all"
         <link rel="icon" type="image/png" href="{{ 'assets/images/lfi.png'|theme }}" />
         {% styles %}
         <link href="{{ [
-            'assets/css/style.css'
+            'assets/css/style.css',
+            'assets/css/lfi.style.css'
         ]|theme }}" rel="stylesheet">
     </head>
     <body>
@@ -42,6 +43,7 @@ security = "all"
         <!-- Scripts -->
         <script src="{{ [
             'assets/js/jquery.js',
+            'assets/js/lfi.scripts.js',
             'assets/js/app.js'
         ]|theme }}"></script>
         {% framework extras %}

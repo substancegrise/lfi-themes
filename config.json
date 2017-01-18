@@ -1,0 +1,38 @@
+{
+  "name": "lfi style",
+  "description": "lfi style",
+  "browserSyncProxy" : "http://localhost:8000",
+  "bowerDir": "./bower_components",
+  "lficss": {
+    "file" : "lfi.style.css",
+    "src": [
+      "scss/lfi.style.scss"
+    ],
+    "dest": "assets/css",
+    "includePaths": [
+      "./bower_components/bootstrap-sass/assets/stylesheets",
+      "./bower_components/font-awesome/scss",
+      "./bower_components/compass-mixins/lib"
+    ]
+  },
+  "lfijs": {
+    "file" : "lfi.script.js",
+    "src": [
+      "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js",
+      "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js",
+      "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js",
+      "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js",
+      "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js",
+      "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js",
+      "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js",
+      "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"
+    ],
+    "dest": "assets/js"
+  },
+  "fonts": {
+    "src": [
+      "./bower_components/bootstrap-sass/assets/fonts/bootstrap/**.*"
+    ],
+    "dest": "./assets/fonts/bootstrap"
+  }
+}

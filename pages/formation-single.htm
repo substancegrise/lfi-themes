@@ -25,6 +25,11 @@ notFoundMessage = "Record not found"
 <h4>{{ record.level }}</h4>
 
 
+<h4>{{ record.time }}</h4>
+<h4>{{ record.hours }}</h4>
+<h4>{{ record.place }}</h4>
+<h4>{{ record.price }}</h4>
+
 <h3>FORMATION DU</h3>
     <div>{{ record.start }}</div>
     <div>{{ record.end }}</div>
@@ -32,12 +37,46 @@ notFoundMessage = "Record not found"
 <h3>CANDIDATURE DU</h3>
 <div>{{ record.candidate_start }}</div>
 <div>{{ record.candidate_end }}</div>
-
+<br/>
+<div>{{ record.presentation }}</div>
+<br/>
+<h4>CONDITION D'ACCES</h4>
+<div>{{ record.condition }}</div>
+<h4>PRE-REQUIS</h4>
+<div>{{ record.prerequis }}</div>
+<h4>MODALITES</h4>
+<div>{{ record.modalite }}</div>
+<h4>VAE</h4>
+<div>{{ record.vae }}</div>
+<h4>EVALUATION</h4>
+<div>{{ record.evalution }}</div>
+<h4>FINANCEMENT</h4>
+<div>{{ record.financement }}</div>
+<h4>PARCOURS INDIVIDUALISE</h4>
+<div>{{ record.parcours }}</div>
 
 
 
     <img src="{{ record.imgright.thumb(175,535, {'mode':'crop'}) }}">
     <img src="{{ record.imgcenter.thumb(960,255, {'mode':'crop'}) }}">
+
+<h4>PROGRAMME</h4>
+
+<div>{{ record.program }}</div>
+
+
+<h4>PROGRAMME GENERALE</h4>
+
+{% for programme in record.programsgeneral %}
+
+    <di>{{ programme.program_name}}</di>
+    <div>{{ programme.program_title}}</div>
+    <div>{{ programme.program_short}}</div>
+    <div>{{ programme.program_text}}</div>
+
+{% endfor%}
+
+
 {% else %}
     {{ notFoundMessage }}
 {% endif %}

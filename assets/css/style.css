@@ -1,0 +1,62 @@
+/* Fonts */
+@font-face {
+    font-family: Melbourne;
+    src: url('../fonts/lfi/Melbourne_regular_basic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/lfi/Melbourne_regular_basic.woff') format('woff'),
+    url('../fonts/lfi/Melbourne_regular_basic.ttf')  format('truetype'),
+    url('../fonts/lfi/Melbourne_regular_basic.svg') format('svg');
+}
+@font-face {
+    font-family: MelbourneBold;
+    src: url('../fonts/lfi/Melbourne_bold_basic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/lfi/Melbourne_bold_basic.woff') format('woff'),
+    url('../fonts/lfi/Melbourne_bold_basic.ttf')  format('truetype'),
+    url('../fonts/lfi/Melbourne_bold_basic.svg') format('svg');
+}
+@font-face {
+    font-family: Lato;
+    src: url('../fonts/lfi/lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/lfi/lato-regular-webfont.woff') format('woff'),
+    url('../fonts/lfi/lato-regular-webfont.ttf')  format('truetype'),
+    url('../fonts/lfi/lato-regular-webfont.svg') format('svg');
+}
+@font-face {
+    font-family: LatoLight;
+    src: url('../fonts/lfi/lato-light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/lfi/lato-light-webfont.woff') format('woff'),
+    url('../fonts/lfi/lato-light-webfont.ttf')  format('truetype'),
+    url('../fonts/lfi/lato-light-webfont.svg') format('svg');
+}
+
+.section-title .content{
+	padding-top:30px;
+	font-size:17px;
+}
+
+.list-formations{
+	margin-top:40px;
+	padding:0;
+}
+
+.list-formations li{
+	list-style: none;
+	padding:0;	
+}
+
+.list-formations li img{
+	width:100%;
+}
+
+.list-formations li .caption{
+	position: absolute;
+    top: 10%;
+    max-width: 60%;
+}
+
+.list-formations li .caption a{
+	color: #fff;
+    background-color: #e1261c;
+    font-size: 21px;
+    line-height: 1.5em;
+    font-weight: 100;
+}

@@ -1,9 +1,4 @@
 description = "Default layout"
-
-[session]
-security = "all"
-
-
 ==
 <!DOCTYPE html>
 <html>
@@ -17,7 +12,10 @@ security = "all"
         <link rel="icon" type="image/png" href="{{ 'assets/images/lfi.png'|theme }}" />
         {% styles %}
         <link href="{{ [
-            'assets/css/style.css'
+            'assets/css/lfi.style.css',
+            'assets/css/header.css',
+            'assets/css/style.css',
+            'assets/css/footer.css',
         ]|theme }}" rel="stylesheet">
     </head>
     <body>
@@ -27,10 +25,6 @@ security = "all"
 
         <!-- Content -->
         <section id="layout-content" class="container clearfix">
-                <div class="container">
-                    <h1>{{ this.page.title }}</h1>
-                    <p>{{ this.page.description }}</p>
-                </div>
             <div class="container">
                 {% page %}
             </div>
@@ -42,6 +36,7 @@ security = "all"
         <!-- Scripts -->
         <script src="{{ [
             'assets/js/jquery.js',
+            'assets/js/lfi.script.js',
             'assets/js/app.js'
         ]|theme }}"></script>
         {% framework extras %}

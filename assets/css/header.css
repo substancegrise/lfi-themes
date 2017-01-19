@@ -1,0 +1,65 @@
+header  {
+    background-color:#000;
+}
+
+header .container-fluid {
+    background: url(../images/home_header.jpg) no-repeat center center #000;
+    background-size: cover;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+header h1{
+	color: #fff;
+    font-size: 21px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 20%;
+    margin-left: -15px;
+    padding-left: 20px;
+    padding-right: 40px;
+    background-color: #e1261c;
+}
+
+.navbar-default {
+    background-color: #fff;
+    border-color: rgba(34,34,34,.05);
+    transition: all .65s;
+}
+
+.navbar-default .container-fluid,
+header .container-fluid{
+	max-width:1600px;
+}
+
+.scroll-down {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 2%;
+}
+
+.scroll-down .pointe {
+    color: white;
+    font-size: 0.8rem;
+}
+
+.scroll-down .apointe {
+    margin-top: 2%;
+}
+
+@media (min-width: 768px){
+	.navbar-default {
+	    background-color: transparent;
+	    border-color: rgba(255,255,255,.3);
+	}
+	.navbar-default.affix {
+	    background-color: #fff;
+	    border-color: rgba(34,34,34,.05);
+	}
+}

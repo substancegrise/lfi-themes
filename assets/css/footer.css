@@ -1,0 +1,15 @@
+footer{
+	margin-top:40px;
+	background-color: #ededed;
+}
+
+footer h2 {
+	color:#a6a6a6;
+}
+
+footer p.legal {
+	margin-top:20px;
+	font-size:11px;
+	color:#a6a6a6;
+	text-align: center;
+}

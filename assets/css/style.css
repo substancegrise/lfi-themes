@@ -28,6 +28,10 @@
     url('../fonts/lfi/lato-light-webfont.svg') format('svg');
 }
 
+h2{
+	text-transform: uppercase;
+}
+
 .section-title .content{
 	padding-top:30px;
 	font-size:17px;

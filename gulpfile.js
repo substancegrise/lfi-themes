@@ -100,11 +100,6 @@ gulp.task('serve', ['fonts', 'lficss', 'lfijs'], function() {
         debounceDelay: 500, // default 500
         mode: 'poll'
     	}, ['lfijs']);
-  gulp.watch(config.images.src, {
-        interval: 1000, // default 100
-        debounceDelay: 500, // default 500
-        mode: 'poll'
-    	}, ['images']);
   gulp.watch('assets/**/*');
 });
 

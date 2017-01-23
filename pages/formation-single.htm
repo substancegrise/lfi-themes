@@ -77,6 +77,34 @@ notFoundMessage = "Record not found"
 {% endfor%}
 
 
+
+<h4>TEMOIGNAGE</h4>
+
+{% for interview in record.interviews %}
+
+    <h4>{{interview.title}}</h4>
+    <h4>{{interview.subtitle}}</h4>
+    <h4>{{interview.name}}</h4>
+    <h4>{{interview.function}}</h4>
+    <h4>{{interview.society}}</h4>
+    <h4>{{interview.line}}</h4>
+    <h4>{{interview.presentation}}</h4>
+    <h4>{{interview.link}}</h4>
+    <img src="{{ interview.picture.thumb(534,700, {'mode':'crop'}) }}">
+
+{% endfor %}
+
+<h4>SOLUTIONS DE FINANCEMENT</h4>
+
+
+{% for financ in record.finance %}
+
+    <h4>{{financ.title}}</h4>
+    <h4>{{financ.finance_txt}}</h4>
+{% endfor %}
+
+
+
 {% else %}
     {{ notFoundMessage }}
 {% endif %}

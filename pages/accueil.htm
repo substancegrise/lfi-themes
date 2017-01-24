@@ -55,6 +55,9 @@ pageNumber = "{{ :page }}"
                 {% endif %}
             {% endspaceless %}
         	<img src="{{ record.imghome.thumb(320,202, {'mode':'crop'}) }}">
+            {% for categorie in record.categories %}
+             <h4>{{categorie.formation_category}}</h4>
+            {% endfor %}
         </li>
     {% else %}
         <li class="no-data">{{ noRecordsMessage }}</li>

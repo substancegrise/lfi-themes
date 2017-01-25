@@ -20,34 +20,76 @@ pageNumber = "{{ :page }}"
 {% set detailsKeyColumn = builderList.detailsKeyColumn %}
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
-<ul class="record-list">
-    {% for record in records %}
-        <li>
-            {# Use spaceless tag to remove spaces inside the A tag. #}
-            {% spaceless %}
-                {% if detailsPage %}
-                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
-                {% endif %}
 
-                <h3>{{ record.name }}</h3>
-                              
-                {% if detailsPage %}
-                    </a>
-                {% endif %}
-            {% endspaceless %}
-            <img src="{{ record.meformer.thumb(320,350, {'mode':'crop'}) }}">
-            
-            {% for categorie in record.categories %}
-                <h4>{{categorie.formation_category}}</h4>
-            {% endfor %}
+<section id="layout-content" class="container clearfix">
+	<div class="row section-title">
+		<div class="col-sm-12 col-md-2">
+			<h2>
+				ME
+				<br />
+				FORMER
+			</h2>
+		</div>
+		<div class="nav-table-formation col-sm-12 col-md-10">
+			<div class="nav-row-formation">
+				<div class="nav-formation">
+					<span class="button-heading">Decouvrir</span><br />
+					<span class="button-text">un metier</span>
+				</div>
+				<div class="nav-formation">
+					<span class="button-heading">Developper</span><br />
+					<span class="button-text">Mes competences</span>
+				</div>
+				<div class="nav-formation">
+					<span class="button-heading">Obtenir</span><br />
+					<span class="button-text">une habilitation</span>
+				</div>
+				<div class="nav-formation">
+					<span class="button-heading">Obtenir</span><br />
+					<span class="button-text">une certification</span>
+				</div>
+				<div class="nav-formation">
+					<span class="button-heading">Valider</span><br />
+					<span class="button-text">les acquis de mon experience</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="list-formations clearfix">
+	    {% for record in records %}
+	        <div class="col-xs-12">
+	            {# Use spaceless tag to remove spaces inside the A tag. #}
+	            {% spaceless %}
+	                {% if detailsPage %}
+	                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+	                {% endif %}
+	
+	                <h3>{{ record.name }}</h3>
+	                              
+	                {% if detailsPage %}
+	                    </a>
+	                {% endif %}
+	            {% endspaceless %}
+	            <img src="{{ record.meformer.thumb(320,350, {'mode':'crop'}) }}">
+	            
+	            {% for categorie in record.categories %}
+	                <h4>{{categorie.formation_category}}</h4>
+	            {% endfor %}
+	
+	            <div>{{ record.start }}</div>
+	            <div>{{ record.end }}</div>
+	        </div>
+	    {% else %}
+	        <div class="no-data">{{ noRecordsMessage }}</div>
+	    {% endfor %}
+	</div>
+	
+	<div class="row text-center">
+		<a class="btn" href="#page-top">Plus de détails</a>
+	</div>
 
-            <div>{{ record.start }}</div>
-            <div>{{ record.end }}</div>
-        </li>
-    {% else %}
-        <li class="no-data">{{ noRecordsMessage }}</li>
-    {% endfor %}
-</ul>
+</section>
 
 {% if records.lastPage > 1 %}
     <ul class="pagination">

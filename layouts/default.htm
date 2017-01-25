@@ -34,15 +34,11 @@ displayPhone = 1
         {% set Texture = random(['carbon', 'dustnscratches', 'elegant', 'grunge', 'leather', 'lines', 'plaid', 'wood']) %}
 
         <!-- Content -->
-        <section id="layout-content" class="container clearfix">
-            <div class="container">
-                {% page %}
-            </div>
-        </section>
+        {% page %}
 		
 		<footer>
 			<div id="contactform">
-		        <div class="container">
+		        <div class="container clearfix">
 					{% component 'contactForm' %}
 					<p class="legal">
 						Conformément à la loi « informatique et libertés » du 6 janvier 1978 modifiée en 2004, vous bénéficiez d'un droit d'accès et de rectification aux informations qui vous concernent 

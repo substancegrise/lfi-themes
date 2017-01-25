@@ -7,6 +7,10 @@ footer #contactform{
 	background-color: #ededed;
 }
 
+footer #contactform textarea{
+	height:133px;
+}
+
 footer h2,
 footer h4 {
 	color:#a6a6a6;
@@ -33,4 +37,35 @@ footer ul{
 footer ul ul {
 	list-style-type:disc;
 	padding-left:20px;
+}
+
+footer .lfi-infos ul{
+	padding-left:33px;	
+}
+
+footer .lfi-infos ul li{
+	position:relative;
+	margin-top:10px;
+}
+
+footer .lfi-infos .adresse:before,
+footer .lfi-infos .phone:before,
+footer .lfi-infos .fax:before{
+	width:33px;
+	height:33px;
+    position: absolute;
+    left: -40px;
+}
+
+footer .lfi-infos .adresse:before{
+	content:url('../images/icon-lfi.png');
+}
+footer .lfi-infos .phone:before{
+    left: -35px;
+    content:url('../images/icon-phone.png');
+}
+
+footer .lfi-infos .fax:before{
+    left: -32px;
+    content:url('../images/icon-fax.png');
 }

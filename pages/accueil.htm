@@ -20,65 +20,136 @@ pageNumber = "{{ :page }}"
 {% set detailsKeyColumn = builderList.detailsKeyColumn %}
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
-<div class="row section-title">
-	<div class="col-md-4">
-		<h2>
-			NOS
-			<br />
-			FORMATIONS
-		</h2>
+<section id="layout-content" class="container clearfix">
+	<div class="row section-title">
+		<div class="col-sm-12 col-md-2">
+			<h2>
+				ME
+				<br />
+				FORMER
+			</h2>
+		</div>
+		<div class="nav-table-formation col-sm-12 col-md-10">
+			<div class="nav-row-formation">
+				<div class="nav-formation">
+					<span class="button-heading">Decouvrir</span><br />
+					<span class="button-text">un metier</span>
+				</div>
+				<div class="nav-formation">
+					<span class="button-heading">Developper</span><br />
+					<span class="button-text">Mes competences</span>
+				</div>
+				<div class="nav-formation">
+					<span class="button-heading">Obtenir</span><br />
+					<span class="button-text">une habilitation</span>
+				</div>
+				<div class="nav-formation">
+					<span class="button-heading">Obtenir</span><br />
+					<span class="button-text">une certification</span>
+				</div>
+				<div class="nav-formation">
+					<span class="button-heading">Valider</span><br />
+					<span class="button-text">les acquis de mon experience</span>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="col-md-4 content">
-		<p>
-			Depuis 1989 LFI développe une activité exclusive de formation aux métiers des Musiques Actuelles et propose notamment des formations certifiantes
-		</p>
+	
+	<div class="list-formations clearfix">
+	    {% for record in records %}
+	        <div class="col-sm-4 list-item">
+	            {# Use spaceless tag to remove spaces inside the A tag. #}
+	            {% spaceless %}
+	                {% if detailsPage %}
+	                	<div class="caption">
+	                    	<a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+	                			{{ attribute(record, displayColumn) }}
+	                    	</a>
+	                   	</div>
+	                {% endif %}
+	            {% endspaceless %}
+	        	<img src="{{ record.imghome.thumb(320,202, {'mode':'crop'}) }}">
+	        </div>
+	    {% else %}
+	        <div class="no-data">{{ noRecordsMessage }}</div>
+	    {% endfor %}
 	</div>
-	<div class="col-md-4 content">
-		<p>
-			(chargé de production, régisseur de production), une formation de backliner et des formations professionnalisantes…
-			[Lire la suite]
-		</p>
+	
+	<div class="row text-center">
+		<a class="btn" href="#page-top">Plus de détails</a>
 	</div>
-</div>
+	
 
-<ul class="list-formations ">
-    {% for record in records %}
-        <li class="col-md-4">
-            {# Use spaceless tag to remove spaces inside the A tag. #}
-            {% spaceless %}
-                {% if detailsPage %}
-                	<div class="caption">
-                    	<a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
-                			{{ attribute(record, displayColumn) }}
-                    	</a>
-                   	</div>
-                {% endif %}
-            {% endspaceless %}
-        	<img src="{{ record.imghome.thumb(320,202, {'mode':'crop'}) }}">
-        </li>
-    {% else %}
-        <li class="no-data">{{ noRecordsMessage }}</li>
-    {% endfor %}
-</ul>
+	{% if records.lastPage > 1 %}
+	    <ul class="pagination">
+	        {% if records.currentPage > 1 %}
+	            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+	        {% endif %}
+	
+	        {% for page in 1..records.lastPage %}
+	            <li class="{{ records.currentPage == page ? 'active' : null }}">
+	                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+	            </li>
+	        {% endfor %}
+	
+	        {% if records.lastPage > records.currentPage %}
+	            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+	        {% endif %}
+	    </ul>
+	{% endif %}
 
-<div class=" row text-center">
-	<a class="btn" href="#page-top">Plus de détails</a>
-</div>
+</section>
 
-{% if records.lastPage > 1 %}
-    <ul class="pagination">
-        {% if records.currentPage > 1 %}
-            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
-        {% endif %}
-
-        {% for page in 1..records.lastPage %}
-            <li class="{{ records.currentPage == page ? 'active' : null }}">
-                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
-            </li>
-        {% endfor %}
-
-        {% if records.lastPage > records.currentPage %}
-            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
-        {% endif %}
-    </ul>
-{% endif %}
+<section id="layout-tremalab">
+	<div class="container clearfix">
+		<div class="row">
+			<div class="col-xs-3 left-title">
+				<h2> Le
+				<br />
+				TrEMA LAB </h2>
+				<div>
+					<span> travail et musiques actuelle </span>
+				</div>
+			</div>
+			<div class="col-xs-9 description">
+				<h3> Un projet pédagogique ambitieux </h3>
+				<p>
+					L’analyse du travail réel en vue de la formation nous impose de relier les moda-lités de formation aux usages professionnels qui en seront faits :
+					la digitalisation des ressources de formation se veut une réponse aux usages et besoins du travail nomade, asynchrone et collaboratif devenu ordinaire
+					dans le monde de travail, notamment dans le milieu des musiques actuelles marqué par la prédominance massive des TPE de moins de 5 salariés et du travail en mode projet
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="layout-agenda" class="container clearfix">
+	<h2> 
+		ACTUALITES<br />
+		EVENEMENTS<br />
+		AGENDA
+	</h2>
+	<div class="list-formations clearfix">
+	    {% for record in records %}
+	        <div class="col-sm-4 list-item">
+	            {# Use spaceless tag to remove spaces inside the A tag. #}
+	            {% spaceless %}
+	                {% if detailsPage %}
+	                	<div class="caption">
+	                    	<a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+	                			{{ attribute(record, displayColumn) }}
+	                    	</a>
+	                   	</div>
+	                {% endif %}
+	            {% endspaceless %}
+	        	<img src="{{ record.imghome.thumb(320,202, {'mode':'crop'}) }}">
+	        </div>
+	    {% else %}
+	        <div class="no-data">{{ noRecordsMessage }}</div>
+	    {% endfor %}
+	</div>
+	
+	<div class="row text-center">
+		<a class="btn" href="#page-top">Toutes les actualités</a>
+	</div>
+	
+</section>

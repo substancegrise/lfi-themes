@@ -3,7 +3,7 @@ header  {
 }
 
 header .container-fluid {
-    background: url(../images/home_header.jpg) no-repeat center center #000;
+    background: url(../images/backgrounds/home_header.jpg) no-repeat center center #000;
     background-size: cover;
     text-align: center;
     height: 100vh;
@@ -29,9 +29,42 @@ header h1{
     transition: all .65s;
 }
 
+.navbar-default .navbar-brand{
+	height:auto;
+}
+
+.navbar-default ul.navbar-nav{
+	padding-top:60px;
+	text-align:center;
+	width:534px;
+	margin:0 auto;
+	float:none;
+    background: transparent url('../images/nav-graduee.png') no-repeat 12px 20px;
+}
+
+.navbar-default ul.navbar-nav li a{
+	color:#333;
+    font-family: Lato;
+    font-weight: bold;
+}
+
 .navbar-default .container-fluid,
 header .container-fluid{
 	max-width:1600px;
+}
+
+.navbar-default .navbar-collapse{
+	position:relative;
+}
+
+ul.nav.right-nav{
+	position:absolute;
+	right:0;
+	top:20px;	
+}
+
+ul.nav.right-nav li {
+    display: inline-block;
 }
 
 .scroll-down {
@@ -53,13 +86,84 @@ header .container-fluid{
     margin-top: 2%;
 }
 
+
+a.fixed-btn{
+	position:fixed;
+	top:75vh;
+}
+
+a.fixed-btn span{
+	color: rgba(225,38,28,0);
+	font-family:Lato;
+	text-transform:uppercase;
+	font-size:14px;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1em;
+}
+
+.navbar-default.affix a.fixed-btn span{
+	color: rgba(225,38,28,1);
+}
+
+a.fixed-btn.carto:before{
+	width:45px;
+	height:45px;
+	content:' ';
+    display: inline-block;
+    vertical-align: middle;
+    background: #e1261c url('../images/icon-carto.png') no-repeat 40px 7px;
+    padding-left:80px;
+    margin-right:10px;
+}
+
+a.fixed-btn.docu{
+	top:74vh;
+	right:0;
+}
+
+a.fixed-btn.docu:after{
+	width:45px;
+	height:45px;
+	content:' ';
+    display: inline-block;
+    vertical-align: middle;
+    background: #e1261c url('../images/icon-docu.png') no-repeat 10px 7px;
+    padding-right:80px;
+    margin-left:10px;
+}
+
+a.fixed-btn.contact{
+	top:82vh;
+	right:0;
+}
+
+a.fixed-btn.contact:after{
+	width:45px;
+	height:45px;
+	content:' ';
+    display: inline-block;
+    vertical-align: middle;
+    background: #e1261c url('../images/icon-contact.png') no-repeat 10px 7px;
+    padding-right:80px;
+    margin-left:10px;
+}
+
+a.fixed-btn.docu span,
+a.fixed-btn.contact span{
+    text-align: right;
+}
+
 @media (min-width: 768px){
 	.navbar-default {
-	    background-color: transparent;
-	    border-color: rgba(255,255,255,.3);
+	    background-color: rgba(255,255,255,.6);
+	    border-color: rgba(255,255,255,.6);
 	}
 	.navbar-default.affix {
 	    background-color: #fff;
 	    border-color: rgba(34,34,34,.05);
+	    -webkit-box-shadow: 0 0px 10px -2px rgba(0,0,0,0.6);
+	    -moz-box-shadow: 0 0px 10px -2px rgba(0,0,0,0.6);
+	    box-shadow: 0 0px 10px -2px rgba(0,0,0,0.6);
 	}
 }

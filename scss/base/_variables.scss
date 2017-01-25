@@ -21,10 +21,10 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 // -----------------------------------------------------------------------------
 
 $brand-primary:         #e1261c !default;
-$brand-success:         #00AFA6 !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
-$brand-info:            #FF995B !default;
+$brand-success:         #a6a6a6 !default;
+$brand-warning:         #FF995B !default;
+$brand-danger:          #FF995B !default;
+$brand-info:            #a6a6a6 !default;
 
 // Scaffolding
 // -----------------------------------------------------------------------------
@@ -130,8 +130,8 @@ $table-border-color:                 #ddd !default; // table and cell border
 $btn-font-weight:                normal !default;
 
 $btn-default-color:              #333 !default;
-$btn-default-bg:                 #fff !default;
-$btn-default-border:             #ccc !default;
+$btn-default-bg:                 transparent !default;
+$btn-default-border:             #a6a6a6 !default;
 
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $brand-primary !default;

@@ -4,6 +4,7 @@
 
 # IntelliJ project files
 .idea
+.idea/
 .project
 .settings
 .DS_Store

@@ -24,8 +24,6 @@ footer a faire
                 {% if detailsPage %}
                     <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
                 {% endif %}
-
-                {{ attribute(record, displayColumn) }}
                         <img src="{{ record.img_partners.path }}">
                 {% if detailsPage %}
                     </a>

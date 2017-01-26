@@ -145,8 +145,10 @@ a.fixed-btn.contact:after{
     display: inline-block;
     vertical-align: middle;
     background: #e1261c url('../images/icon-contact.png') no-repeat 10px 7px;
+    border-radius: 2px 0px 0px 2px;
     padding-right:80px;
     margin-left:10px;
+
 }
 
 a.fixed-btn.docu span,
@@ -166,4 +168,12 @@ a.fixed-btn.contact span{
 	    -moz-box-shadow: 0 0px 10px -2px rgba(0,0,0,0.6);
 	    box-shadow: 0 0px 10px -2px rgba(0,0,0,0.6);
 	}
+}
+/**
+ * **************** CHRISTIAN CSSS
+**/
+
+a.fixed-btn.contact:hover:before{
+    content:" NOUS CONTACTER ";
+
 }

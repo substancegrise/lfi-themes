@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="190cf737-938a-44d9-a8dc-1f3368bacb36" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/financement.htm" afterPath="$PROJECT_DIR$/pages/financement.htm" />
     </list>
     <ignored path="lfi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -286,6 +285,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="prop_add_unversioned_files" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="BashConfigurationType" factoryName="Bash">
@@ -369,7 +369,7 @@
       <workItem from="1485249068635" duration="6450000" />
       <workItem from="1485341359384" duration="3970000" />
       <workItem from="1485361442385" duration="3889000" />
-      <workItem from="1485421554601" duration="1318000" />
+      <workItem from="1485421554601" duration="1502000" />
     </task>
     <task id="LOCAL-00001" summary="Page single formation avec lien sur programme !!">
       <created>1484753511777</created>
@@ -434,11 +434,18 @@
       <option name="project" value="LOCAL" />
       <updated>1485423173204</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="plugin blog">
+      <created>1485430609143</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1485430609144</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44376000" />
+    <option name="totallyTimeSpent" value="44560000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="22" width="1380" height="850" extended-state="0" />
@@ -506,7 +513,8 @@
     <MESSAGE value="add .idea/ to gitignore" />
     <MESSAGE value="ignore workspace.xml" />
     <MESSAGE value="sticky over !" />
-    <option name="LAST_COMMIT_MESSAGE" value="sticky over !" />
+    <MESSAGE value="plugin blog" />
+    <option name="LAST_COMMIT_MESSAGE" value="plugin blog" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

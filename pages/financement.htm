@@ -2,12 +2,9 @@ title = "financement"
 url = "/financement"
 is_hidden = 0
 
-
-
-
 [blogPosts]
 pageNumber = "{{ :page }}"
-postsPerPage = "10"
+postsPerPage = 10
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 categoryPage = "blog/category"
@@ -15,11 +12,8 @@ postPage = "blog/post"
 
 [blogCategories]
 slug = "{{ :slug }}"
-displayEmpty = "0"
+displayEmpty = 0
 categoryPage = "blog/category"
-
-
-
 
 [builderList]
 modelClass = "Lfi\Formations\Models\Finance"
@@ -39,6 +33,9 @@ detailsPage = "-"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
 
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "accueil"
 ==
 {% set records = builderList.records %}
 {% set displayColumn = builderList.displayColumn %}
@@ -131,10 +128,11 @@ pageNumber = "{{ :page }}"
                 <div>{{ post.published_at|date('d m') }}</div>
             </p>
 
+
             {% if post.excerpt %}
-            <p>{{ post.excerpt }}</p>
+            <p class="excerpt">{{ post.excerpt }}</p>
             {% else %}
-            <div class="">{{ post.content_html|raw }}</div>
+            <div class="content">{{ post.content_html|raw }}</div>
             {% endif %}
         </div>
     </div>
@@ -162,3 +160,34 @@ pageNumber = "{{ :page }}"
     {% endif %}
 </ul>
 {% endif %}
+
+<!-- ARTICLES --->
+
+{% set post = blogPost.post %}
+
+<div class="content">{{ post.content_html|raw }}</div>
+
+{% if post.featured_images.count %}
+
+    <div class="featured-images text-center">
+        {% for image in post.featured_images %}
+            <p>
+                <img
+                    data-src="{{ image.filename }}"
+                    src="{{ image.path }}"
+                    alt="{{ image.description }}"
+                    style="max-width: 100%" />
+            </p>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<p class="info">
+    Posted
+    {% if post.categories.count %} in
+        {% for category in post.categories %}
+            <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+    {% endif %}
+    on {{ post.published_at|date('M d, Y') }}
+</p>

@@ -28,9 +28,10 @@ displayPhone = 1
             'assets/css/footer.css',
         ]|theme }}" rel="stylesheet">
     </head>
-    <body>
+    <body class="{{ this.page.class }}">
 
         {% partial "header" %}
+        
         {% set Texture = random(['carbon', 'dustnscratches', 'elegant', 'grunge', 'leather', 'lines', 'plaid', 'wood']) %}
 
         <!-- Content -->
@@ -39,7 +40,7 @@ displayPhone = 1
 		<footer>
 			<div id="partners">
 		        <div class="container">
-					{% partial "partners" %}
+        			{% partial "partners" %}
 		       	</div>
 		    </div>
 			<div id="contactform">

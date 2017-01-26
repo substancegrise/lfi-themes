@@ -4,6 +4,8 @@
 
 # IntelliJ project files
 .idea
+.idea/
+.idea/workspace.xml
 .project
 .settings
 .DS_Store

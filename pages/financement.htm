@@ -3,6 +3,25 @@ url = "/financement"
 class = 'financement'
 is_hidden = 0
 
+
+
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = "10"
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = "0"
+categoryPage = "blog/category"
+
+
+
+
 [builderList]
 modelClass = "Lfi\Formations\Models\Finance"
 scope = "-"
@@ -20,6 +39,7 @@ noRecordsMessage = "No records found"
 detailsPage = "-"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
+
 ==
 {% set records = builderList.records %}
 {% set displayColumn = builderList.displayColumn %}
@@ -81,3 +101,65 @@ pageNumber = "{{ :page }}"
     {% endfor %}
 </ul>
 
+<!-- POST --->
+
+{% set posts = blogPosts.posts %}
+
+<div class="post-list">
+    {% for post in posts %}
+    <div class="media">
+
+        <div class="media-left">
+            <a href="{{ post.url }}">
+                {% if post.featured_images.count > 0 %}
+                <img class="" src="{{ post.featured_images.first.getThumb(318,270) }}" />
+                {% else %}
+                <img class="" src="http://placehold.it/100x100" />
+                {% endif %}
+            </a>
+        </div>
+
+        <div class="">
+            <h4 class="">
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </h4>
+            <p class="">
+
+                {% if post.categories.count %} {% endif %}
+                {% for category in post.categories %}
+                <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+                <div>{{ post.published_at|date('d m') }}</div>
+            </p>
+
+            {% if post.excerpt %}
+            <p>{{ post.excerpt }}</p>
+            {% else %}
+            <div class="">{{ post.content_html|raw }}</div>
+            {% endif %}
+        </div>
+    </div>
+    {% else %}
+    <div class="no-data">
+        <p>{{ noPostsMessage }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% if posts.lastPage > 1 %}
+<ul class="pagination">
+    {% if posts.currentPage > 1 %}
+    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
+    {% endif %}
+
+    {% for page in 1..posts.lastPage %}
+    <li class="{{ posts.currentPage == page ? 'active' : null }}">
+        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+    </li>
+    {% endfor %}
+
+    {% if posts.lastPage > posts.currentPage %}
+    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
+    {% endif %}
+</ul>
+{% endif %}

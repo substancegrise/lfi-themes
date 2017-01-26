@@ -1,6 +1,5 @@
 title = "financement"
 url = "/financement"
-class = 'financement'
 is_hidden = 0
 
 [blogPosts]
@@ -34,9 +33,17 @@ detailsPage = "-"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
 
-[blogPost]
-slug = "{{ :slug }}"
+[blogPost blogArticle]
+slug = "technicien-backliner"
+categoryPage = "{{ accueil }}"
+
+[blogPosts blogListArticle]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
 categoryPage = "accueil"
+postPage = "accueil"
 ==
 {% set records = builderList.records %}
 {% set displayColumn = builderList.displayColumn %}
@@ -163,13 +170,11 @@ categoryPage = "accueil"
 {% endif %}
 
 <!-- ARTICLES --->
-
-{% set post = blogPost.post %}
+{% set post = blogArticle.post %}
 
 <div class="content">{{ post.content_html|raw }}</div>
 
 {% if post.featured_images.count %}
-
     <div class="featured-images text-center">
         {% for image in post.featured_images %}
             <p>
@@ -192,3 +197,61 @@ categoryPage = "accueil"
     {% endif %}
     on {{ post.published_at|date('M d, Y') }}
 </p>
+
+<!-- LISTE ARTICLES --->
+{% set posts = blogListArticle.posts %}
+
+<ul class="post-list">
+    {% for post in posts %}
+        <li>
+            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+
+            <div class="content">{{ post.content_html|raw }}</div>
+
+            {% if post.featured_images.count %}
+            <div class="featured-images text-center">
+                {% for image in post.featured_images %}
+                <p>
+                    <img
+                            data-src="{{ image.filename }}"
+                            src="{{ image.path }}"
+                            alt="{{ image.description }}"
+                            style="max-width: 100%" />
+                </p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <p class="info">
+                Posted
+                {% if post.categories.count %} in {% endif %}
+                {% for category in post.categories %}
+                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+                on {{ post.published_at|date('M d, Y') }}
+            </p>
+
+            <p class="excerpt">{{ post.summary }}</p>
+        </li>
+    {% else %}
+        <li class="no-data">{{ noPostsMessage }}</li>
+    {% endfor %}
+</ul>
+
+{% if posts.lastPage > 1 %}
+    <ul class="pagination">
+        {% if posts.currentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..posts.lastPage %}
+            <li class="{{ posts.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if posts.lastPage > posts.currentPage %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}

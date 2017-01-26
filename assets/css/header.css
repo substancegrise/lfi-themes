@@ -1,5 +1,14 @@
+.navbar-header {
+    z-index: 100;
+    position: relative;
+}
+
 header  {
     background-color:#000;
+}
+
+#mainNav  .container-fluid {
+    padding: 0 60px;
 }
 
 header .container-fluid {
@@ -46,6 +55,12 @@ header h1{
 	color:#333;
     font-family: Lato;
     font-weight: bold;
+}
+
+.navbar-default ul.navbar-nav > li.active,
+.navbar-default ul.navbar-nav > li.active a{
+	color: rgba(225,38,28,1);
+	background:none transparent;	
 }
 
 .navbar-default .container-fluid,
@@ -102,7 +117,7 @@ a.fixed-btn span{
     line-height: 1em;
 }
 
-.navbar-default.affix a.fixed-btn span{
+.navbar-default a.fixed-btn:hover span{
 	color: rgba(225,38,28,1);
 }
 

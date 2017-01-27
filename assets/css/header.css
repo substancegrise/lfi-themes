@@ -101,24 +101,23 @@ ul.nav.right-nav li {
     margin-top: 2%;
 }
 
-
 a.fixed-btn{
 	position:fixed;
 	top:75vh;
 }
 
 a.fixed-btn span{
-	color: rgba(225,38,28,0);
+	color: rgba(225,38,28);
 	font-family:Lato;
 	text-transform:uppercase;
 	font-size:14px;
     vertical-align: middle;
-    display: inline-block;
+    display: none;
     line-height: 1em;
 }
 
 .navbar-default a.fixed-btn:hover span{
-	color: rgba(225,38,28,1);
+	display:inline-block;
 }
 
 a.fixed-btn.carto:before{
@@ -171,6 +170,29 @@ a.fixed-btn.contact span{
     text-align: right;
 }
 
+/*** Formation single 
+****************************/
+
+body.formation-single header .container-fluid {
+    background: url(../images/backgrounds/single-formation.jpg) no-repeat center center #000;
+    background-size: cover;
+}
+
+
+body.formation-single header .scroll-down{
+	display:none;
+}
+
+body.formation-single h1 {
+    width: 100%;
+    top: 35%;
+    font-size: 40px;
+    padding-top: 7px;
+    line-height: 1em;
+}
+
+
+
 @media (min-width: 768px){
 	.navbar-default {
 	    background-color: rgba(255,255,255,.6);
@@ -183,12 +205,4 @@ a.fixed-btn.contact span{
 	    -moz-box-shadow: 0 0px 10px -2px rgba(0,0,0,0.6);
 	    box-shadow: 0 0px 10px -2px rgba(0,0,0,0.6);
 	}
-}
-/**
- * **************** CHRISTIAN CSSS
-**/
-
-a.fixed-btn.contact:hover:before{
-    content:" NOUS CONTACTER ";
-
 }

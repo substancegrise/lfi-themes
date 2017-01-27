@@ -115,6 +115,9 @@ pageNumber = "{{ :page }}"
 		           	</div>
 		        </div>
 		    {% endfor %}
+		    <a href="{{ record.fiche_formation.path }}"><span class=""></span></a>
+		    <a href="{{ record.fiche_formation.path }}"><span></span></a>
+		    <a href="{{ record.fiche_formation.path }}"><span></span></a>
 		</div>
 		
 		<div class="row text-center">
@@ -141,7 +144,7 @@ pageNumber = "{{ :page }}"
 		
 		<div id="financement" class="row">
 		    {% for record in records %}
-		        <div class="col-sm-4">
+		        <div class="col-sm-3">
 		        	<div class="list-financement">
 			            {# Use spaceless tag to remove spaces inside the A tag. #}
 			            {% spaceless %}

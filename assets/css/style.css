@@ -28,6 +28,10 @@
     url('../fonts/lfi/lato-light-webfont.svg') format('svg');
 }
 
+img{
+	max-width:100%;
+}
+
 h2{
 	text-transform: uppercase;
 	line-height:1;
@@ -40,10 +44,6 @@ ul li{
 
 section{
 	padding:40px 0;
-}
-
-.container{
-	width:970px;
 }
 
 .section-title{
@@ -128,6 +128,8 @@ section{
  	box-shadow: 20px 0 0 #e1261c, -20px 0 0 #e1261c;
 }
 
+/*** PAGE DES FORMATION
+***************************************/
 body.formations header{
 	display:none;
 }
@@ -205,6 +207,95 @@ body.formations{
 }
 .formations.list-formations .description div.eye{
     background: url(../images/icon-eye.png) no-repeat center center #fff;
+}
+
+
+/***************************************/
+
+/*** PAGE D'UNE FORMATION
+***************************************/
+
+body.formation-single .formations.list-formations{
+	margin-bottom:0px;
+}
+
+body.formation-single .formations.list-formations .description{
+	padding-bottom:40px;
+}
+
+body.formation-single .formations.list-formations h3{
+    font-size: 30px;
+}
+
+body.formation-single .formations.list-formations h3{
+	color: #fff;
+    background-color: #e1261c;
+    font-size: 18px;
+    line-height: 1.5em;
+    font-weight: 100;
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding: 0 20px;
+ 	box-shadow: 0px 0 0 #e1261c, -15px 0 0 #e1261c;
+}
+
+
+section#layout-single-formation{
+    background-color: #fafafa;
+}
+
+section#layout-single-formation > .container.next-session{
+    margin-top: -57vh;
+    color: #fff;
+	text-align:center;
+    position: relative;
+    font-family: Melbourne;
+}
+
+section#layout-single-formation > .container.next-session h3 {
+	font-size: 30px;
+	color:#FFF;
+}
+section#layout-single-formation > .container.next-session span {
+	font-size: 24px;
+}
+
+section#layout-single-formation .conditions {
+	padding:0 50px;
+}
+
+section#layout-single-formation .conditions h4,
+section#layout-single-formation .programme h4{
+	font-size: 16px;
+	color:#fff;
+	font-family:MelbourneBold;
+    background-color: #e1261c;
+	text-transform:uppercase;
+}
+
+section#layout-single-formation .programme h4{
+	font-size: 30px;
+	text-align: center;
+	margin-bottom:0px;
+	margin-top:0px;
+}
+
+
+section#layout-single-formation .programme.description{
+    background-color: #fff;
+    font-size: 24px;
+    text-align: center;
+    line-height:1.7em;
+    padding:20px 20%;
+}
+
+section#layout-single-formation .conditions > div{
+    background-color: #fff;
+}
+
+section#layout-single-formation .conditions .desc{
+    line-height: 1.8em;
 }
 
 section#layout-me-former{

@@ -78,7 +78,7 @@ pageNumber = "{{ :page }}"
 			                {% if detailsPage %}
 			                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
 			                {% endif %}
-			                <h3>{{ record.name }}</h3>
+			                <h3>{{ record.name|upper }}</h3>
 			                {% if detailsPage %}
 			                    </a>
 			                {% endif %}
@@ -91,8 +91,8 @@ pageNumber = "{{ :page }}"
 			                    {% for categorie in record.categories %}
 			                        <h4>{{categorie.formation_category}}</h4>
 			                    {% endfor %}
-			                    <h5>{{ record.subtitle }}</h5>
-			                    <h5>{{ record.level }}</h5>
+			                    <h5>{{ record.subtitle|upper }}</h5>
+			                    <h5>{{ record.level|upper }}</h5>
 			                </div>
 			            	<div class='col-xs-2 text-center icono'>
 			            		<div class="agenda"></div>
@@ -110,7 +110,7 @@ pageNumber = "{{ :page }}"
 			                </div>
 		                </div>
 	                    <p>
-			            	{{ record.presentation }}
+			            	{{ record.presentation|truncate(450, true) }}
 		            	</p>
 		           	</div>
 		        </div>

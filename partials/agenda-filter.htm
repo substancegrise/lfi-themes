@@ -1,0 +1,72 @@
+
+{% set categoryname = 'slug' %}
+
+<div class="row section-title">
+	<div class="col-md-4 col-xs-4 ">
+		<h2>
+			ACTUALITES<br />
+			EVENEMENTS<br />
+			AGENDA
+		</h2>
+	</div>
+	<div class="nav-table-formation col-md-8 hidden-sm hidden-xs">
+		<div class="nav-row-formation">
+			<div class="nav-formation all nav-button">
+		    	<a href="/blog" class="{{ this.param[categoryname] == '' ? 'active' : '' }}">
+					<span class="button-text">Voir</span><br />
+					<span class="button-heading ">Tout</span>
+				</a>
+			</div>
+			<div class="nav-formation actualite nav-button {{ this.param[categoryname] == 'actualite' ? 'active' : '' }}">
+		    	<a href="/blog/categorie/actualite" class="{{ this.param[categoryname] == 'actualite' ? 'active' : '' }}">
+					<span class="button-text">Voir</span><br />
+					<span class="button-heading">Actualites</span>
+				</a>
+			</div>
+			<div class="nav-formation evenement nav-button {{ this.param[categoryname] == 'evenement' ? 'active' : '' }}">
+		    	<a href="/blog/categorie/evenement" class="{{ this.param[categoryname] == 'evenement' ? 'active' : '' }}">
+					<span class="button-text">Voir</span><br />
+					<span class="button-heading">Evenement</span>
+				</a>
+			</div>
+			<div class="nav-formation agenda nav-button {{ this.param[categoryname] == 'agenda' ? 'active' : '' }}">
+		    	<a href="/blog/categorie/agenda" class="{{ this.param[categoryname] == 'agenda' ? 'active' : '' }}">
+					<span class="button-text">Voir</span><br />
+					<span class="button-heading">agendas</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 nav-collapse-formation hidden-md hidden-lg">
+		<div class="dropdown">
+		  <button class="btn btn-primary dropdown-toggle text-left" type="button" data-toggle="dropdown">Filtrer les actualites :
+		  <span class="caret"></span></button>
+		  <ul class="dropdown-menu">
+		    <li class="all nav-button {{ this.param[categoryname] == '' ? 'active' : '' }}">
+		    	<a href="/blog" class="{{ this.param[categoryname] == '' ? 'active' : '' }}">
+					<span class="button-text">Voir</span><br />
+					<span class="button-heading ">Tout</span>
+				</a>
+			</li>
+		    <li class="actualite nav-button {{ this.param[categoryname] == 'actualite' ? 'active' : '' }}">
+		    	<a href="/blog/categorie/actualite" class="{{ this.param[categoryname] == 'actualite' ? 'active' : '' }}">
+					<span class="button-text">Voir</span><br />
+					<span class="button-heading">Actualites</span>
+				</a>
+			</li>
+		    <li class="evenement nav-button {{ this.param[categoryname] == 'evenement' ? 'active' : '' }}">
+		    	<a href="/blog/categorie/evenement" class="{{ this.param[categoryname] == 'evenement' ? 'active' : '' }}">
+					<span class="button-text">Voir</span><br />
+					<span class="button-heading">Evenement</span>
+				</a>
+			</li>
+		    <li class="agenda nav-button {{ this.param[categoryname] == 'agenda' ? 'active' : '' }}">
+		    	<a href="/blog/categorie/agenda" class="{{ this.param[categoryname] == 'agenda' ? 'active' : '' }}">
+					<span class="button-text">Voir</span><br />
+					<span class="button-heading">agendas</span>
+				</a>
+			</li>
+		  </ul>
+		</div>
+	</div>
+</div>

@@ -30,6 +30,9 @@ pageNumber = "{{ :page }}"
 {% put pagetitle %}
     {{ record.name }}
 {% endput %}
+{% put singleFormationBackground %}
+    {{ record.imgback.path }}
+{% endput %}
 
 {% if record %}
 
@@ -45,14 +48,14 @@ pageNumber = "{{ :page }}"
 		<div class="formations list-formations clearfix">
 			<div class="col-sm-12 description">
 	        	<div class="row">
-	            	<div class='col-sm-6'>
+	            	<div class='col-md-6'>
 	                    {% for categorie in record.categories %}
 	                        <h2>{{categorie.formation_category}}</h2>
 	                    {% endfor %}
 	                    <h3>{{ record.subtitle }}</h3>
 	                    <h3>{{ record.level }}</h3>
 	                </div>
-	            	<div class='col-sm-6'>
+	            	<div class='col-md-5'>
 	        			<div class="row">
 			            	<div class='col-xs-3 text-center icono'>
 			            		<div class="agenda"></div>
@@ -65,17 +68,19 @@ pageNumber = "{{ :page }}"
 			            		HEURES
 			                </div>
 			            	<div class='col-xs-3 text-center icono'>
-			            		<div class="heures"></div>
-			            		{{ record.price }}<br />
-			            		€ NET
-			                </div>
-			            	<div class='col-xs-3 text-center icono'>
-			            		<div class="heures"></div>
+			            		<div class="places"></div>
 			            		{{ record.place }}<br />
 			            		PERS
 			                </div>
+			            	<div class='col-xs-3 text-center icono'>
+			            		<div class="price"></div>
+			            		{{ record.price }}<br />
+			            		€ NET
+			                </div>
 	                	</div>
 	                </div>
+            		<a class="financement-icon" href=""><img src="/themes/lfi/assets/images/icon-financement.png" /></a>
+            		<a class="share-icon" href=""><img src="/themes/lfi/assets/images/icon-share.png" /></a>
 	            </div>
 	            <p>
 	            	{{ record.presentation }}
@@ -120,25 +125,29 @@ pageNumber = "{{ :page }}"
 					<h4>PROGRAMME</h4>
 				    <img src="{{ record.imgcenter.thumb(960,255, {'mode':'crop'}) }}" />
 		        </div>
-	        </div>
-			<div class="col-sm-12 programme description">
-				<div>{{ record.program }}</div>
+				<div class="col-sm-12">
+					<div class="col-sm-12 programme description">{{ record.program }}</div>
+		        </div>
 	        </div>
 			<div class="row temoignage clearfix">
 				{% for interview in record.interviews %}
-				<div class="col-sm-6">
-					    <img src="{{ interview.picture.thumb(534,700, {'mode':'crop'}) }}">
+				<div class="col-sm-6 cover">
+					    <img src="{{ interview.picture.thumb(534,700, {'mode':'crop'}) }}" />
+					    <div class="top-labels">
+						    <div class="title">{{interview.title}}</div>
+						    ---
+						    <div class="subtitle">{{interview.subtitle}}</div>
+					    </div>
+					    <div class="bottom-labels">
+						    <div class="name">{{interview.name}}</div>
+						    <div class="function">{{interview.function}}</div>
+						    <div class="society">{{interview.society}}</div>
+				    		<div class="line">{{interview.line}}</div>
+					    </div>
 		        </div>
 		        <div class="col-sm-6 temoignage-text">
-				    <h4>{{interview.line}}</h4>
-				    <h4>{{interview.presentation}}</h4>
-				    <h4>{{interview.link}}</h4>
-				    -----
-				    <h4>{{interview.title}}</h4>
-				    <h4>{{interview.subtitle}}</h4>
-				    <h4>{{interview.name}}</h4>
-				    <h4>{{interview.function}}</h4>
-				    <h4>{{interview.society}}</h4>
+				    <p>{{interview.presentation}}</p>
+				    <a href="http://{{interview.link}}" target="_blank">{{interview.link}}</a>
 		        </div>
 				{% endfor %}
 	        </div>
@@ -164,17 +173,18 @@ pageNumber = "{{ :page }}"
 		{% set detailsKeyColumn = financement.detailsKeyColumn %}
 		{% set detailsUrlParameter = financement.detailsUrlParameter %}
 		
-		<br />
-		<br />
-		<h2>
-			Solution
-			<br />
-			de financement
-		</h2>
-		<br />
-		<br />
-		
-		<div id="financement" class="row">
+		<div id="financement">
+		    <div class="col-sm-12">
+				<br />
+				<br />
+				<h2>
+					Solution
+					<br />
+					de financement
+				</h2>
+				<br />
+				<br />
+			</div>
 		    {% for record in records %}
 		        <div class="col-sm-3">
 		        	<div class="list-financement">

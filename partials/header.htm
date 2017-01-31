@@ -16,18 +16,17 @@
                 <li class="{% if this.page.id == 'presentation' %}active{% endif %}"><a href="/{{ 'presentation' }}">PRESENTATION</a></li>
                 <li class="{% if this.page.id == 'formations' %}active{% endif %}"><a href="/{{ 'formations' }}">FORMATIONS</a></li>
                 <li class="{% if this.page.id == 'tremalab' %}active{% endif %}"><a href="/{{ 'tremalab' }}">TREMA LAB</a></li>
-                <li class="{% if this.page.id == 'actualites' %}active{% endif %}"><a href="/{{ 'actualites' }}">ACTUALITÉS</a></li>
+                <li class="{% if this.page.id == 'blog-blog' %}active{% endif %}"><a href="/{{ 'blog' }}">ACTUALITÉS</a></li>
             </ul>
             <ul class="nav right-nav">
-                <li class="{% if this.page.id == 'presentation' %}active{% endif %}"><a href="#">[ESPACE ENTREPRISES]</a></li>
-                <li class="{% if this.page.id == 'presentation' %}active{% endif %}"><a href="#"><img src="/themes/lfi/assets/images/icon-recherche.png" /></a></li>
-                <li class="{% if this.page.id == 'presentation' %}active{% endif %}"><a href="#"><img src="/themes/lfi/assets/images/icon-equalizer.png" /></a></li>
+                <li class="hidden-xs hidden-sm {% if this.page.id == 'presentation' %}active{% endif %}"><a href="#"><img src="/themes/lfi/assets/images/icon-recherche.png" /></a></li>
+                <li class="hidden-xs hidden-sm {% if this.page.id == 'presentation' %}active{% endif %}"><a href="#"><img src="/themes/lfi/assets/images/icon-equalizer.png" /></a></li>
             </ul>
         </div>
     </div>
-	<a class="fixed-btn carto"><span>Cartographie<br /> des métiers</span</a>
-	<a class="fixed-btn docu"><span>Télécharger<br /> la documentation</span></a>
-	<a class="fixed-btn contact" id="contact"><span>Nous contacter</span></a>
+	<a class="fixed-btn carto hidden-xs hidden-sm"><span>Cartographie<br /> des métiers</span</a>
+	<a class="fixed-btn docu hidden-xs hidden-sm"><span>Télécharger<br /> la documentation</span></a>
+	<a class="fixed-btn contact hidden-xs hidden-sm" id="contact"><span>Nous contacter</span></a>
 </nav>
 <header>
     <div class="header-content">

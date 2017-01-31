@@ -31,6 +31,16 @@ displayPhone = 1
             'assets/css/style.css',
             'assets/css/footer.css',
         ]|theme }}" rel="stylesheet">
+        
+        {% if placeholder('singleFormationBackground') %}
+        	<style>
+				body.formation-single header .container-fluid {
+				    background: url({% placeholder singleFormationBackground %}) no-repeat center center #000;
+				    background-size: cover;
+				}
+        	</style>
+		{% endif %}
+		
     </head>
     <body class="{{ this.page.class }}">
 

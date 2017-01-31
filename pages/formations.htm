@@ -35,42 +35,70 @@ pageNumber = "{{ :page }}"
 <section id="layout-me-former" class="clearfix">
 	<div class="container clearfix">
 		<div class="row section-title">
-			<div class="col-sm-12 col-md-2">
+			<div class="col-md-2 col-xs-4 ">
 				<h2>
 					ME
 					<br />
 					FORMER
 				</h2>
 			</div>
-			<div class="nav-table-formation col-sm-12 col-md-10">
+			<div class="nav-table-formation col-md-10 hidden-sm hidden-xs">
 				<div class="nav-row-formation">
-					<div class="nav-formation">
-						<span class="button-heading">Decouvrir</span><br />
+					<div class="nav-formation prequalification nav-button">
+						<span class="button-heading ">Decouvrir</span><br />
 						<span class="button-text">un metier</span>
 					</div>
-					<div class="nav-formation">
+					<div class="nav-formation competence nav-button">
 						<span class="button-heading">Developper</span><br />
 						<span class="button-text">Mes competences</span>
 					</div>
-					<div class="nav-formation">
+					<div class="nav-formation habilitation nav-button">
 						<span class="button-heading">Obtenir</span><br />
 						<span class="button-text">une habilitation</span>
 					</div>
-					<div class="nav-formation">
+					<div class="nav-formation certification nav-button">
 						<span class="button-heading">Obtenir</span><br />
 						<span class="button-text">une certification</span>
 					</div>
-					<div class="nav-formation">
+					<div class="nav-formation acquis nav-button">
 						<span class="button-heading">Valider</span><br />
 						<span class="button-text">les acquis de mon experience</span>
 					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 nav-collapse-formation hidden-md hidden-lg">
+				<div class="dropdown">
+				  <button class="btn btn-primary dropdown-toggle text-left" type="button" data-toggle="dropdown">Je souhaite :
+				  <span class="caret"></span></button>
+				  <ul class="dropdown-menu">
+				    <li class="prequalification nav-button">
+						<span class="button-heading">Decouvrir</span><br />
+						<span class="button-text">un metier</span>
+					</li>
+				    <li class="competence nav-button">
+						<span class="button-heading">Developper</span><br />
+						<span class="button-text">Mes competences</span>
+					</li>
+				    <li class="habilitation nav-button">
+						<span class="button-heading">Obtenir</span><br />
+						<span class="button-text">une habilitation</span>
+					</li>
+				    <li class="certification nav-button">
+						<span class="button-heading">Obtenir</span><br />
+						<span class="button-text">une certification</span>
+					</li>
+				    <li class="acquis nav-button">
+						<span class="button-heading">Valider</span><br />
+						<span class="button-text">les acquis de mon experience</span>
+					</li>
+				  </ul>
 				</div>
 			</div>
 		</div>
 		
 		<div class="formations list-formations clearfix">
 		    {% for record in records %}
-		        <div class="row">
+		        <div class="row row-list {{ record.categories[0].formation_category|lower }}">
 		        	
 		        	<div class="col-sm-4 list-item">
 			            {# Use spaceless tag to remove spaces inside the A tag. #}
@@ -87,27 +115,34 @@ pageNumber = "{{ :page }}"
 					</div>
 		            <div class="col-sm-8 description">
 		            	<div class="row">
-			            	<div class='col-xs-6'>
+			            	<div class='col-md-6'>
 			                    {% for categorie in record.categories %}
 			                        <h4>{{categorie.formation_category}}</h4>
 			                    {% endfor %}
 			                    <h5>{{ record.subtitle|upper }}</h5>
 			                    <h5>{{ record.level|upper }}</h5>
 			                </div>
-			            	<div class='col-xs-2 text-center icono'>
-			            		<div class="agenda"></div>
-			            		{{ record.start|date("d M","Europe/Paris") }}<br />
-			            		{{ record.time }}
+			            	<div class='col-md-6'>
+		            			<div class="row">
+					            	<div class='col-xs-4 text-center icono'>
+					            		<div class="agenda"></div>
+					            		{{ record.start|date("d M","Europe/Paris") }}<br />
+					            		{{ record.time }}
+					                </div>
+					            	<div class='col-xs-4 text-center icono'>
+					            		<div class="heures"></div>
+					            		{{ record.hours }}<br />
+					            		HEURES
+					                </div>
+					            	<div class='col-xs-4 text-center icono'>
+					            		<div class="eye"></div>
+				            			<a href="{{ record.fiche_formation.path }}">VOIR<br /> LA FICHE</a>
+					                </div>
+			                	</div>
 			                </div>
-			            	<div class='col-xs-2 text-center icono'>
-			            		<div class="heures"></div>
-			            		{{ record.hours }}<br />
-			            		HEURES
-			                </div>
-			            	<div class='col-xs-2 text-center icono'>
-			            		<div class="eye"></div>
-		            			<a href="{{ record.fiche_formation.path }}">VOIR<br /> LA FICHE</a>
-			                </div>
+		            		<a class="fiche-icon" href=""><img src="/themes/lfi/assets/images/icon-fiche.png" /></a>
+		            		<a class="financement-icon" href=""><img src="/themes/lfi/assets/images/icon-financement.png" /></a>
+		            		<a class="share-icon" href=""><img src="/themes/lfi/assets/images/icon-share.png" /></a>
 		                </div>
 	                    <p>
 			            	{{ record.presentation|truncate(450, true) }}
@@ -121,7 +156,7 @@ pageNumber = "{{ :page }}"
 		</div>
 		
 		<div class="row text-center">
-			<a class="btn" href="#page-top">Toutes les formations</a>
+			<a class="btn nav-button all" href="#page-top">Toutes les formations</a>
 		</div>
 		
 		<!-- SECTION FINANCEMENT ** -->

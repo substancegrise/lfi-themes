@@ -10,6 +10,7 @@
     ],
     "dest": "assets/css",
     "includePaths": [
+      "./assets/css/plugins",
       "./bower_components/bootstrap-sass/assets/stylesheets",
       "./bower_components/font-awesome/scss",
       "./bower_components/compass-mixins/lib"
@@ -25,7 +26,8 @@
       "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js",
       "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js",
       "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js",
-      "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"
+      "./bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js",
+      "./bower_components/share-button/share-button.js"
     ],
     "dest": "assets/js"
   },

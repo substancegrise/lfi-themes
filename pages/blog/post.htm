@@ -21,10 +21,11 @@ categoryPage = "accueil"
 			            <a class="category" href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
 			        {% endfor %}
 			    {% endif %}
-	        	<p class="summary">{{ post.summary }}</p>
+	        	<p class="summary">{{ post.summary[:50]|striptags ~ ' ...' }}</p>
 	        	<h1 class="title">{{ post.title }}</h1>
 	        	<div class="date">{{ post.published_at|date('d/m/y') }}</div>
 		    </div>
+	        <share-button data-url='{{ post.url }}' class="share-icon"></share-button>
         </div>
         <div class="col-sm-6 full-actus-text">
 		    <p>{{ post.content_html|raw }}</p>

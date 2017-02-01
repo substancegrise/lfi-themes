@@ -1,7 +1,8 @@
 title = "SE FORMER AUX METIERS DES MUSIQUES ACTUELLES"
 url = "/"
-layout = "default"
+layout = "layout-header-video"
 is_hidden = 0
+class="home"
 
 [builderList]
 modelClass = "Lfi\Formations\Models\Formation"
@@ -103,9 +104,15 @@ postPage = "blog/post"
 	                			{{ attribute(record, displayColumn) }}
 	                    	</a>
 	                   	</div>
+		                <a class="heading" href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+		                    {% for categorie in record.categories %}
+		                        <div class="category hidden-sm">{{categorie.formation_category}}</div>
+		                    {% endfor %}
+	        				<img src="{{ record.imghome.thumb(320,202, {'mode':'crop'}) }}" />
+	        				<img class="view-icon" src="/themes/lfi/assets/images/icon-eye-blanc.png" />
+                    	</a>
 	                {% endif %}
 	            {% endspaceless %}
-	        	<img src="{{ record.imghome.thumb(320,202, {'mode':'crop'}) }}">
 	        </div>
 	    {% else %}
 	        <div class="no-data">{{ noRecordsMessage }}</div>

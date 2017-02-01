@@ -41,12 +41,16 @@ categoryFilter = "{{ :slug }}"
 			            {% endfor %}
 		            	<span>{{ post.published_at|date('d/m') }}</span>
 		            </div>
-		        	<p class="summary">{{ post.summary }}</p>
+		        	<p class="summary hidden-sm hidden-xs">{{ post.summary[:50]|striptags ~ ' ...' }}</p>
 		        	<a class="title" href="{{ post.url }}">{{ post.title }}</a>
                	</div>
                	
 	        	{% if post.featured_images.count %}
-	            <a href="{{ post.url }}"><img data-src="{{ post.featured_images[0].filename }}" src="{{ post.featured_images[0].path }}" alt="{{ post.featured_images[0].description }}" style="max-width: 100%" /></a>
+	            <a href="{{ post.url }}" class="cover">
+	            	<img data-src="{{ post.featured_images[0].filename }}" src="{{ post.featured_images[0].path }}" alt="{{ post.featured_images[0].description }}" style="max-width: 100%" />
+		        	<img class="view-icon" src="/themes/lfi/assets/images/icon-eye-blanc.png" />
+	            </a>
+	            <share-button data-url='{{ post.url }}' class="hidden-sm share-icon"></share-button>
 	        	{% endif %}
 	        </div>
 	    {% else %}

@@ -2,6 +2,7 @@ title = "presentation"
 url = "/presentation"
 layout = "defaultpresentation"
 is_hidden = 0
+class = 'presentation'
 
 [builderList financement]
 modelClass = "Lfi\Formations\Models\Finance"
@@ -12,146 +13,154 @@ detailsPage = "-"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
 ==
-<section id="" class="clearfix">
-    <div>
-        <h3>RETOUR A L’ACCUEIL</h3>
-
-        <h2>UNE RELATION
-            <br />
-            ETROITE AVEC LES
-            <br />
-            PROFESSIONNELS
-            <br />
-            DES MUSIQUES
-            <br />
-            ACTUELLES </h2>
-
-        <h3>VOIR LE TEASER</h3>
-
-        <h3>EN SAVOIR PLUS</h3>
-        
-        <img src="themes/lfi/assets/images/backgrounds/PRESENTATION_FOND-1600X800px-SECTION-1.jpg">
-
+<div class="item pane-video">
+	<video id="bgvid" height="100%" class="" preload="metadata">
+	    <source src="/storage/app/media/videos/intro-video.mp4" type="video/mp4">
+	    <source src="/storage/app/media/videos/intro-video.ogv" type="video/ogg">
+	    <source src="/storage/app/media/videos/intro-video.webm" type="video/webm">
+	    Browser non compatible
+	</video>
+</div>
+<section id="layout-presentation-first">
+    <div class="container clearfix">
+		<div class="row clearfix">
+			<div class="col-sm-12">
+				<a class="back" href="/">Retour a l'accueil</a>
+			</div>
+		</div>
+		<div class="row clearfix presentation">
+			<div class="col-sm-5 left">
+	        	<img class="hidden-xs" style="width:100%;" src="/themes/lfi/assets/images/logo-lfi-presentation.png" />
+			</div>
+			<div class="col-sm-7 right">
+	        	<h2>
+	        		UNE RELATION
+					<br />
+					ETROITE AVEC LES
+					<br />
+					PROFESSIONNELS
+					<br />
+					DES MUSIQUES
+					<br />
+					ACTUELLES
+				</h2>
+				<br />
+				<a class="next teaser" href="/">VOIR LE TEASER</a>
+			</div>
+		</div>
     </div>
-    <div>
-        <h3>RETOUR A L’ACCUEIL</h3>
-
-        <h2>UNE ACTIVITE
-            <br />
-            EXCLUSIVE DE
-            <br />
-            FORMATION AUX
-            <br />
-            METIERS DES
-            <br />
-            MUSIQUES ACTUELLES</h2>
-
-        <div>Depuis 1989 LFI développe une activité
-            exclusive de formationaux métiers des
-            Musiques Actuelles et propose notamment
-            des formations certifiantes (chargé de production,
-            régisseur de production), une formation de
-            backliner et des formations professionnalisantes
-            financées par la Région.</div>
-
-        <img src="themes/lfi/assets/images/backgrounds/PRESENTATION_FOND-1600X800px-SECTION-2.jpg">
-
-        <div class="row text-center">
-            <a class="btn" href="">VOIR LES FORMATIONS</a>
-        </div>
+	<div class="scroll-down">
+        <a href="#" class="pointe">EN SAVOIR PLUS</a>
+        <a class="apointe"><img src="/themes/lfi/assets/images/next_blanc.png" /></a>
     </div>
-    <div>
-        <h2>80%
-            <br />
-            TAUX D’INSERTION
-            <br />
-            DANS L’EMPLOI
-        </h2>
-        <div>
-            La relation étroite de LFI avec les professionnels du milieu
-            nourrit sa réflexion quant aux objectifs de formation :
-            des administrateurs issus des organisations représentatives,
-            70 formateurs occasionnels et un réseau d’anciens stagiaires
-            actifs sur tout le territoire. Cette relation et le taux d’insertion
-            dans l’emploi de 80% confèrent à l’établissement une forte
-            légitimité auprès des entreprises.
-        </div>
-        <img src="themes/lfi/assets/images/backgrounds/PRESENTATION_FOND-1600X800px-SECTION-22.jpg">
-
-        <div class="row text-center">
-            <a class="btn" href="">VOIR LES ANCIENS</a>
-        </div>
+</section>
+<section id="layout-presentation-activite">
+    <div class="container clearfix activite">
+		<div class="row clearfix">
+			<div class="col-sm-7 pull-left text-right title">
+				<h2>
+					UNE ACTIVITE
+		            EXCLUSIVE DE
+		            FORMATION AUX
+		            METIERS DES
+		            MUSIQUES ACTUELLES
+	            </h2>
+			</div>
+			<div class="col-sm-5">
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-sm-7">
+			</div>
+			<div class="col-sm-5 pull-right presentation">
+	        	<p class="divider"></p>
+				<p>Depuis 1989 LFI développe une activité
+	            exclusive de formationaux métiers des
+	            Musiques Actuelles et propose notamment
+	            des formations certifiantes (chargé de production,
+	            régisseur de production), une formation de
+	            backliner et des formations professionnalisantes
+	            financées par la Région.</p>
+				<br />
+            	<a class="btn" href="">VOIR NOS FORMATIONS</a>
+			</div>
+		</div>
     </div>
-    <div>
-        <h2>
-            FAVORISER
-            <br />
-            L’ACCES A
-            <br />
-            LA FORMATION
-        </h2>
-        <div> </div>
-        <div>
-            LFI a modularisé ses formations et créé ses référentiels de
-            certification pour favoriser l’accès à la formation et la mobilité
-            professionnelle des actifs par la VAE (Validation des Acquis de
-            l’Expérience).
-        </div>
-        <div> </div>
-        <div>
-            Aujourd’hui, face aux mutations sociales, économiques et
-            technologiques, LFI s’engage dans un projet d’innovation et
-            de digitalisation de son dispositif pour répondre aux besoins
-            des professionnels et aux exigences de l’individualisation des
-            parcours et de la formation à distance.
-        </div>
-        <img src="themes/lfi/assets/images/backgrounds/PRESENTATION_FOND-1600X800px-SECTION-3.jpg">
-        <div class="row text-center">
-            <a class="btn" href="">EN SAVOIR PLUS</a>
-        </div>
+</section>
+<section id="layout-presentation-insertion">
+    <div class="container clearfix">
+		<div class="row clearfix insertion">
+			<div class="col-sm-6 col-sm-offset-3 title text-center">
+		        <h2>80%
+		            <br />
+		            TAUX D’INSERTION
+		            <br />
+		            DANS L’EMPLOI
+		        </h2>
+	        	<p class="divider"></p>
+			</div>
+			<div class="col-sm-8 col-sm-offset-2 presentation text-center">
+	        	<p>
+		            La relation étroite de LFI avec les professionnels du milieu
+		            nourrit sa réflexion quant aux objectifs de formation :
+		            des administrateurs issus des organisations représentatives,
+		            70 formateurs occasionnels et un réseau d’anciens stagiaires
+		            actifs sur tout le territoire. Cette relation et le taux d’insertion
+		            dans l’emploi de 80% confèrent à l’établissement une forte
+		            légitimité auprès des entreprises.
+	            </p>
+				<br />
+            	<a class="btn" href="">VOIR LES ANCIENS</a>
+			</div>
+		</div>
     </div>
-    <div>
-        <h3>MICHEL BOSSEAU / DIRECTEUR DES FORMATIONS D’ISSOUDUN</h3>
-        <img src="themes/lfi/assets/images/PRESENTATION-PHOTO-740X420px_VIDEO_MICHEL.jpg">
+</section>
+<section id="layout-presentation-formation">
+    <div class="container clearfix">
+		<div class="row clearfix formation">
+			<div class="col-sm-5 title">
+		        <h2>
+		            FAVORISER
+		            L’ACCES A
+		            LA FORMATION
+		        </h2>
+			</div>
+			<div class="col-sm-7 presentation">
+		        <p class="divider"></p>
+		        <p>
+		            LFI a modularisé ses formations et créé ses référentiels de
+		            certification pour favoriser l’accès à la formation et la mobilité
+		            professionnelle des actifs par la VAE (Validation des Acquis de
+		            l’Expérience).
+		        </p>
+		        <p class="divider"></p>
+		        <p>
+		            Aujourd’hui, face aux mutations sociales, économiques et
+		            technologiques, LFI s’engage dans un projet d’innovation et
+		            de digitalisation de son dispositif pour répondre aux besoins
+		            des professionnels et aux exigences de l’individualisation des
+		            parcours et de la formation à distance.
+		        </p>
+	            <a class="btn" href="/formations">EN SAVOIR PLUS</a>
+			</div>
+	    </div>
     </div>
-    <div class="row text-center">
-        <a class="btn" href="">RETOURNER A L'ACCUEIL</a>
+</section>
+<section id="layout-presentation-directeur">
+    <div class="container clearfix">
+	    <div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
+        		<h3>MICHEL BOSSEAU / DIRECTEUR DES FORMATIONS D’ISSOUDUN</h3>
+	    	</div>
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+	    		<a class="video-link" href="http://youtube.com" target="_blank"><img src="/themes/lfi/assets/images/backgrounds/presentation-directeur.jpg" /></a>
+	    	</div>
+	    </div>
+	    <div class="row">
+			<div class="col-sm-12 text-center">
+				<br />
+	        	<a class="btn" href="/">RETOURNER A L'ACCUEIL</a>
+	    	</div>
+	    </div>
     </div>
-    <div>
-    <br />
-    <br />
-    <h2>
-        Solution
-        <br />
-        de financement
-    </h2>
-    <br />
-    <br />
-
-    <div id="financement" class="row">
-        {% for record in records %}
-        <div class="col-sm-3">
-            <div class="list-financement">
-                {# Use spaceless tag to remove spaces inside the A tag. #}
-                {% spaceless %}
-                {% if detailsPage %}
-                <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
-                    {% endif %}
-                    <div style="padding-left:20px;">
-                        <h5>{{ attribute(record, displayColumn) }}</h5>
-                    </div>
-                    <p>{{record.finance_txt|md}}</p>
-                    {% if detailsPage %}
-                </a>
-                {% endif %}
-                {% endspaceless %}
-            </div>
-        </div>
-        {% else %}
-        <div class="no-data">{{ noRecordsMessage }}</div>
-        {% endfor %}
-    </div>
-
-    </div>
-
 </section>

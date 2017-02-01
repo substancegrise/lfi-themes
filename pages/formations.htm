@@ -108,10 +108,10 @@ pageNumber = "{{ :page }}"
 			                {% endif %}
 			                <h3>{{ record.name|upper }}</h3>
 			                {% if detailsPage %}
+			            		<img src="{{ record.meformer.thumb(320,350, {'mode':'crop'}) }}">
 			                    </a>
 			                {% endif %}
 			            {% endspaceless %}
-			            <img src="{{ record.meformer.thumb(320,350, {'mode':'crop'}) }}">
 					</div>
 		            <div class="col-sm-8 description">
 		            	<div class="row">
@@ -140,9 +140,9 @@ pageNumber = "{{ :page }}"
 					                </div>
 			                	</div>
 			                </div>
-		            		<a class="fiche-icon" href=""><img src="/themes/lfi/assets/images/icon-fiche.png" /></a>
-		            		<a class="financement-icon" href=""><img src="/themes/lfi/assets/images/icon-financement.png" /></a>
-		            		<a class="share-icon" href=""><img src="/themes/lfi/assets/images/icon-share.png" /></a>
+		            		<a class="hidden-xs fiche-icon" href=""><img src="/themes/lfi/assets/images/icon-fiche.png" /></a>
+		            		<a class="hidden-xs financement-icon" href=""><img src="/themes/lfi/assets/images/icon-financement.png" /></a>
+            				<share-button data-url='{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}' class="hidden-xs share-icon"></share-button>
 		                </div>
 	                    <p>
 			            	{{ record.presentation|truncate(450, true) }}

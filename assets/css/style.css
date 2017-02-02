@@ -8,10 +8,10 @@
 }
 @font-face {
     font-family: MelbourneBold;
-    src: url('../fonts/lfi/Melbourne-bold.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/lfi/Melbourne-bold.woff') format('woff'),
-    url('../fonts/lfi/Melbourne-bold.ttf')  format('truetype'),
-    url('../fonts/lfi/Melbourne-bold.svg') format('svg');
+    src: url('../fonts/lfi/Melbourne-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/lfi/Melbourne-Bold.woff') format('woff'),
+    url('../fonts/lfi/Melbourne-Bold.ttf')  format('truetype'),
+    url('../fonts/lfi/Melbourne-Bold.svg') format('svg');
 }
 @font-face {
     font-family: Lato;
@@ -28,6 +28,10 @@
     url('../fonts/lfi/lato-light-webfont.svg') format('svg');
 }
 
+a:hover{
+	text-decoration:none;
+}
+
 img{
 	max-width:100%;
 }
@@ -42,6 +46,17 @@ ul li{
 	line-height:1.7em;
 }
 
+p.divider {
+    display: inline-block;
+    width: 100px;
+    border-top: 1px solid #fff;
+}
+
+.stripe-loading-indicator .stripe, 
+.stripe-loading-indicator .stripe-loaded{
+	background:#E1261C !important;
+}
+
 section{
 	padding:40px 0;
 }
@@ -49,6 +64,9 @@ section{
 .section-title{
 	margin-top:20px;
 }
+
+/* FILTRE DES GRILLES FORMATIONS ET AGENDA
+***********************************************/
 
 .section-title .nav-table-formation{
 	display:table;
@@ -80,9 +98,16 @@ section{
     background: transparent url('../images/menu-borders.png') no-repeat center center;
 }
 
-.section-title .nav-formation:hover{
+.section-title .nav-formation:hover,
+.section-title .nav-formation.active{
 	color:#e1261c;
     background: transparent url('../images/je-souhaite.png') no-repeat center center;
+}
+
+.section-title .nav-formation:hover a,
+.section-title .nav-formation.active a{
+	color:#e1261c;
+	text-decoration:none;
 }
 
 .section-title .nav-formation .button-heading,
@@ -92,34 +117,151 @@ section{
 	text-transform:uppercase;
 }
 
+ .section-title .nav-collapse-formation .dropdown button{
+ 	width:100%;
+    text-align: left;
+    right: 15px;
+    border: none;
+    top: 8px;
+    font-size: 18px;
+    padding: 10px;
+    font-family: Melbourne;
+ }
+ 
+ .section-title .nav-collapse-formation .dropdown button.btn .caret {
+    margin-left: 0;
+    position: absolute;
+    right: 20px;
+    border:none;
+    width:25px;
+    height:25px;
+    background: transparent url('../images/icon-arrow-blanc.png') no-repeat center center;
+}
+
+ .section-title .nav-collapse-formation .open > .dropdown-menu {
+    display: block;
+    width: 100%;
+}
+
+.section-title .nav-collapse-formation ul.dropdown-menu li {
+    padding: 10px 20px;
+    line-height: 1.2em;
+}
+
+.section-title .nav-collapse-formation ul.dropdown-menu li.active {
+	color: #fff;
+    background-color: #e1261c;
+}
+
+.section-title .nav-collapse-formation ul.dropdown-menu .button-heading{
+	font-family:MelbourneBold;
+	text-transform:uppercase;
+}
+
 .section-title .nav-formation .button-text{
 	font-size:16px;
     line-height: 15px;
     display: inline-block;
 }
 
-.list-formations{
+
+#layout-agenda .section-title .nav-table-formation {
+    display: table;
+    margin-top: 60px;
+}
+
+#layout-agenda .section-title .nav-formation{
+    width:25%;
+}
+
+
+/***********************************************/
+
+/* FORMATION AND ACTUS GRID
+*****************************/
+
+.list-formations,
+.list-actus{
 	margin-top:40px;
 	margin-bottom:40px;
 }
 
-.list-formations .list-item{
+.list-formations .list-item,
+.list-actus .list-item{
 	list-style: none;
 	padding:0;	
 }
 
-.list-formations .list-item img{
+.list-formations .list-item img,
+.list-formations .list-item .cover img,
+.list-actus .list-item img,
+.list-actus .list-item .cover img{
 	width:100%;
 }
 
-.list-formations .list-item .caption{
+
+.list-actus .list-item .cover {
+	display:block;
+	width:100%;
+}
+
+.list-formations .list-item .caption,
+.list-actus .list-item .caption {
 	position: absolute;
     top: 10%;
-    max-width: 60%;
+    max-width: 70%;
     left: 20px;
 }
 
-.list-formations .list-item .caption a{
+.list-item img.view-icon {
+    width: 20px !important;
+    display: block;
+    position: absolute;
+    z-index: 100;
+    bottom: 22px;
+    right: 25px;
+}
+
+.list-item share-button.share-icon{
+    position: absolute;
+    bottom: 20px;
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    border: none;
+    left: 10px;
+}
+
+.list-item share-button.share-icon:before,
+.full-actus share-button.share-icon:before {
+    width: 20px;
+    height: 20px;
+    background: url(../images/icon-share-blanc.png) no-repeat center center transparent;
+    background-size: contain;
+}
+
+.full-actus  share-button.share-icon{
+    margin-top: 20px;
+    height: 30px;
+    width: 25px;
+    position: relative;
+    display: inline-block !important;
+}
+.full-actus share-button.share-icon:before {
+    width: 25px;
+    height: 25px;
+}
+
+.list-formations .list-item .category {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-family: Melbourne;
+    color: #fff;
+}
+
+.list-formations .list-item .caption .heading,
+.list-actus .list-item .caption .heading{
 	color: #fff;
     background-color: #e1261c;
     font-size: 21px;
@@ -128,14 +270,60 @@ section{
  	box-shadow: 20px 0 0 #e1261c, -20px 0 0 #e1261c;
 }
 
+
+.list-actus .list-item .caption{
+	max-width:100%;
+    width: 85%;
+}
+
+.list-actus .list-item .caption .heading{
+ 	box-shadow: 10px 0 0 #e1261c, -20px 0 0 #e1261c;
+}
+
+.list-actus .list-item .caption .heading a{
+	color:#fff;
+	font-family: Melbourne;
+	font-size:16px;
+}
+
+.list-actus .list-item .caption .heading span{
+    float: right;
+    font-family: Melbourne;
+    font-size: 30px;
+    line-height: 1.4em;
+}
+
+.list-actus .list-item .caption .summary,
+.list-actus .list-item .caption .title{
+    color: #fff;
+    font-family: MelbourneBold;
+    font-size: 16px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 15px;
+	text-transform:uppercase;
+}
+
+.list-actus .list-item .caption .title{
+    font-size: 36px;
+	text-transform:uppercase;
+    display: inline-block;
+    margin-top: 5px;
+}
+
 /*** PAGE DES FORMATION
 ***************************************/
-body.formations header{
+body.formations header,
+body.actus header{
 	display:none;
 }
 
 body.formations{
-	padding-top:128px;
+	padding-top:100px;
+}
+
+body.actus section#layout-agenda{
+	padding-top:140px;
 }
 
 .formations.list-formations{
@@ -155,8 +343,75 @@ body.formations{
 }
 
 
-.formations.list-formations .list-item{
+.share-icon,
+.share-icon:hover{
+	background:none transparent;
+	z-index:900;
+}
+.share-icon:before{
+    width: 30px;
+    height: 27px;
+    background: url('../images/icon-share.png') no-repeat center center transparent;
+    background-size: contain;
+}
+
+share-button .sb-social ul li:before {
+  background-image: url();
+}
+
+share-button.share-icon .sb-social.sb-right.sb-bottom ul li,
+share-button.share-icon .sb-social.sb-right.active.sb-bottom ul li{
+	display:list-item;
+	position:relative;
+}
+
+share-button.share-icon .sb-social ul li.disabled{
+	display:none !important;
+}
+
+share-button .sb-social.sb-left.active.sb-middle,
+share-button .sb-social.sb-left.sb-middle {
+    left: 0px;
+    margin-top: 11px;
+}
+
+share-button.share-icon .sb-social.sb-right.sb-bottom,
+share-button.share-icon .sb-social.sb-right.active.sb-bottom {
+    bottom: -36px;
+    left: 26px;
+}
+
+.share-icon,
+a.financement-icon,
+a.fiche-icon {
+    position: absolute;
+}
+
+.formations.list-formations a.fiche-icon{
+	top:auto;
+    right: 18px;
+    bottom: 14vh;
+}
+
+.formations.list-formations a.financement-icon{
+	top:auto;
+    right: 10px;
+    bottom: 7vh;
+}
+
+.formations.list-formations .share-icon{
+    bottom: 4vh;
+    right: 14px;
+	top:auto;
+}
+
+.formations.list-formations .row-list{
 	margin-bottom:25px;
+}
+
+.formations.list-formations .row-list .description{
+    align-items: stretch;
+    flex: 1;
 }
 
 .formations.list-formations .description{
@@ -170,7 +425,9 @@ body.formations{
 
 .formations.list-formations .description .row div.agenda,
 .formations.list-formations .description .row div.heures,
-.formations.list-formations .description .row div.eye{
+.formations.list-formations .description .row div.eye,
+.formations.list-formations .description .row div.places,
+.formations.list-formations .description .row div.price{
     width: 100%;
     height: 50px;
     display:inline-block;
@@ -208,6 +465,12 @@ body.formations{
 .formations.list-formations .description div.eye{
     background: url(../images/icon-eye.png) no-repeat center center #fff;
 }
+.formations.list-formations .description div.places{
+    background: url(../images/icon-places.png) no-repeat center center #fff;
+}
+.formations.list-formations .description div.price{
+    background: url(../images/icon-price.png) no-repeat center center #fff;
+}
 
 
 /***************************************/
@@ -227,7 +490,9 @@ body.formation-single .formations.list-formations h3{
     font-size: 30px;
 }
 
-body.formation-single .formations.list-formations h3{
+body.formation-single .formations.list-formations h3,
+body.formation-single .modules h4,
+body.formation-single .modules h5{
 	color: #fff;
     background-color: #e1261c;
     font-size: 18px;
@@ -240,6 +505,218 @@ body.formation-single .formations.list-formations h3{
  	box-shadow: 0px 0 0 #e1261c, -15px 0 0 #e1261c;
 }
 
+body.formation-single .modules  h4,
+body.formation-single .modules  h5{
+    box-shadow: none;
+}
+
+body.formation-single .modules ul{
+	padding:0px;
+	background-color: #fff;
+}
+body.formation-single .modules ul li{
+	list-style: none;
+}
+
+body.formation-single .modules h4{
+    font-size: 30px;
+    padding: 20px 0;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+body.formation-single .modules h4:after{
+	display:inline-block;
+	width:15px;
+	height:25px;
+	content:url('../images/next_blanc.png');
+    vertical-align: text-bottom;
+    margin-left: 30px;
+    position:absolute;
+    right: 40px;
+    top: 35%;
+}
+
+body.formation-single .modules p.divider{
+	border-top:1px solid #000;
+}
+
+body.formation-single .modules .module-text{
+	padding:0px 50px;
+}
+body.formation-single .modules .short-text{
+	padding:25px 0 0 0;
+    font-family: Lato;
+    font-weight: bold;
+}
+body.formation-single .modules .text{
+	padding:0 0 25px 0; 
+}
+
+body.formation-single .formations.list-formations .share-icon,
+body.formation-single .formations.list-formations  a.financement-icon{
+    right: 20px;
+    top: 17px;
+    bottom:auto;
+}
+
+body.formation-single .formations.list-formations  .share-icon{
+    top: 70px;
+    right: 25px;
+    bottom:auto;
+}
+
+/***************************************/
+
+/*** TEMOIGNAGE
+***************************************/
+
+.temoignage.row,
+.full-actus.row{
+	color:#fff;
+	margin:0px;
+	background-color:#000;
+} 
+
+.full-actus.row{
+	background-color:#e1261c;
+} 
+
+.temoignage .cover,
+.full-actus .cover,
+.temoignage .temoignage-text,
+.full-actus .full-actus-text{
+    padding: 0;
+}
+
+.temoignage .top-labels,
+.temoignage .bottom-labels,
+.full-actus .top-labels,
+.full-actus .bottom-labels{
+    font-family: MelbourneBold;
+    text-transform: uppercase;
+}
+
+.temoignage .top-labels,
+.temoignage .bottom-labels{
+	position:absolute;
+    left: 60px;
+}
+
+.temoignage .top-labels{
+	top:40px;	
+    position: absolute;
+    font-size: 18px;
+}
+
+.temoignage .bottom-labels{
+	bottom:40px;
+	left:0;
+    width: 100%;
+}
+
+.temoignage .bottom-labels .name{
+	color:#e1261c;
+    font-size: 30px;
+    padding-left:60px;
+}
+
+.temoignage .bottom-labels .function,
+.temoignage .bottom-labels .society,
+.temoignage .bottom-labels .line{
+	margin-top:4px;
+	color: #fff;
+    background-color: #e1261c;
+    font-size: 18px;
+    padding-left:60px;
+    width: 100%;
+}
+
+.temoignage .bottom-labels .line{
+	text-transform:none;
+}
+
+.temoignage .temoignage-text{
+	padding:50px;
+    line-height: 1.9em;	
+}
+
+.temoignage .temoignage-text a{
+	color:#e1261c;
+}
+
+.full-actus .full-actus-text{
+    padding: 60px 80px 60px 0px;
+    line-height: 1.9em;	
+}
+
+.full-actus .full-actus-text img {
+    max-width: 100%;
+}
+
+.full-actus .cover{
+	padding:60px 0px 60px 80px;
+}
+
+.full-actus h1.title{
+	color:#fff;
+    font-size: 48px;
+    display: block;
+    max-width: 70%;
+    font-family: MelbourneBold;
+}
+
+.full-actus a.category,
+.full-actus a.category:hover{
+	color:#fff;
+    font-size: 18px;
+    padding-bottom:5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #fff;
+    display: inline-block;
+    text-decoration:none;
+}
+
+.full-actus .date {
+    font-size: 18px;
+    font-family: Melbourne;
+    padding: 10px 0;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    display: inline-block;
+}
+
+.full-actus p.summary {
+    font-size: 26px;
+    font-family: Melbourne;
+    display: block;
+    max-width: 60%;
+}
+
+body.actus .back{
+	font-size:18px;
+    font-family: Melbourne;
+    text-transform:uppercase;
+    color: #e1261c;
+    margin-top:15px;
+    margin-bottom:20px;
+    display: inline-block;
+}
+
+
+body.actus .back:before{
+	display:inline-block;
+	width:15px;
+	height:25px;
+	content:url('../images/back-red.png');
+    vertical-align: text-bottom;
+    margin-right: 30px;
+}
+
+/***************************************/
+
+/*** LAYOUTS
+***************************************/
 
 section#layout-single-formation{
     background-color: #fafafa;
@@ -298,6 +775,22 @@ section#layout-single-formation .conditions .desc{
     line-height: 1.8em;
 }
 
+section#layout-agenda{
+    background: url(../images/backgrounds/actualites.jpg) no-repeat center center #f2f2f2;
+    background-size: cover;
+}
+
+
+body.actus section#layout-agenda{
+    background:none transparent;
+    background-size: cover;
+}
+
+body.actus{
+    background: url(../images/backgrounds/actualites.jpg) no-repeat center -1140px #f2f2f2;
+    background-size: cover;
+}
+    
 section#layout-me-former{
     background: url(../images/backgrounds/me_former.jpg) no-repeat 0 0 #f2f2f2;
     background-size: cover;
@@ -337,7 +830,7 @@ section#layout-tremalab .description h3{
 }
 
 section#layout-tremalab .description{
-	margin:30px 0;
+	margin:0 0 30px 0;
     background-color: #fff;
     padding: 50px;
     line-height: 1.9em;
@@ -358,8 +851,229 @@ section#layout-tremalab .description{
 	max-width:170px;
 }
 
+/***** PAGE PRESENTATION
+**************************************/
+
+
+body.presentation h2{
+	font-size:60px;
+}
+
+body.presentation a.btn{
+    color: #FFF;
+}
+
+body.presentation .back,
+body.presentation .next{
+	font-size:18px;
+    font-family: Melbourne;
+    text-transform:uppercase;
+    color: #FFF;
+    margin-top:15px;
+    margin-bottom:20px;
+    display: inline-block;
+}
+
+body.presentation .next{
+   margin-left:10px;
+}
+
+body.presentation .back:before,
+body.presentation .next:after{
+	display:inline-block;
+	width:15px;
+	height:25px;
+	content:url('../images/back-red.png');
+    vertical-align: text-bottom;
+    margin-right: 30px;
+}
+
+body.presentation .next:after{
+	-moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+    	margin-right: 0px;
+        margin-left:30px;
+}
+
+body.presentation{
+	background-color:#262626;
+}
+
+body.presentation #layout-presentation-first{
+    background: url(../images/backgrounds/presentation-first.jpg) no-repeat center center #262626;
+    background-size: cover;
+    min-height:100vh;
+}
+body.presentation #layout-presentation-activite{
+    background: url(../images/backgrounds/presentation-activite.jpg) no-repeat center center #262626;
+    background-size: cover;
+    min-height:90vh;
+}
+body.presentation #layout-presentation-insertion{
+    background: url(../images/backgrounds/presentation-insertion.jpg) no-repeat center center #262626;
+    background-size: cover;
+    min-height:90vh;
+}
+body.presentation #layout-presentation-formation{
+    background: url(../images/backgrounds/presentation-formation.jpg) no-repeat center center #262626;
+    background-size: cover;
+    min-height:90vh;
+}
+body.presentation #layout-presentation-directeur h3{
+	font-size:18px;
+    font-family: Melbourne;
+    color: #FFF;
+}
+
+body.presentation #layout-presentation-first .presentation{
+	padding-top:13vh;
+}
+
+body.presentation #layout-presentation-first .right{
+	padding-left:35px;	
+}
+
+body.presentation #layout-presentation-activite .activite{
+	padding-top:8vh;
+}
+body.presentation #layout-presentation-formation .formation{
+	padding-top:10vh;
+}
+
+body.presentation #layout-presentation-activite .presentation,
+body.presentation #layout-presentation-insertion .presentation,
+body.presentation #layout-presentation-formation .presentation{
+	font-size:18px;
+    font-family: Lato;
+    color: #FFF;
+    line-height: 1.9em;
+}
+
+body.presentation #layout-presentation-insertion .title{
+	margin-bottom:30px;
+}
+body.presentation #layout-presentation-insertion .presentation{
+	margin-top:30px;
+}
+
+@media (min-width: 768px){
+	
+	.container {
+	    width: auto;
+	}
+	
+	.formations.list-formations .row-list{
+		margin-bottom:25px;
+		display:flex;
+	}
+	
+	.formations.list-formations .row-list .description{
+	    align-items: stretch;
+	    flex: 1;
+	}
+	
+}
+
+@media (min-width: 992px){
+	.container {
+	    width: 970px;
+	}
+}
+
 @media (min-width: 1200px){
 	.container {
 	    width: 970px;
+	}
+}
+
+@media (max-width: 600px){
+	.list-item{
+		width:100%;
+	}
+}
+
+@media (max-width: 575px) {
+	body.presentation h2{
+		font-size:36px;
+	}
+	
+	body.presentation #layout-presentation-first .presentation{
+		padding-top:0;
+	}
+	body.formation-single h1{
+		font-size: 28px;
+	}
+	body.formation-single h2{
+		font-size: 26px;
+	}
+	
+	.formations.list-formations .description p{
+		padding:20px 10px;
+	}
+	.formations.list-formations .description .icono,
+	.formations.list-formations .description .icono a {
+	    font-size: 12px;
+	}
+
+	section#layout-single-formation .conditions {
+	    padding: 0px;
+	}
+	section#layout-single-formation > .container.next-session span {
+	    font-size: 18px;
+	}
+}
+
+@media (max-width: 767px){
+	
+	.full-actus .full-actus-text {
+	    padding: 0px 50px 40px 50px;
+	    line-height: 1.9em;
+	}
+	
+	.full-actus .cover {
+	    padding: 50px 0px 50px 50px;
+	}
+	
+	.full-actus .full-actus-text img {
+	    max-width: 100%;
+	}
+	
+	#financement .list-financement {
+	    max-width: 80%;
+	    margin-bottom: 40px;
+	}
+}
+
+@media (max-width: 850px){
+	body.actus section#layout-agenda{
+		padding-top:100px;
+	}
+	
+	body.formations {
+		padding-top:60px;
+	}
+}
+
+@media (max-width: 991px){
+
+	a.fiche-icon img{
+		width:20px;
+	}
+	a.financement-icon img{
+		width:30px;
+	}
+	.share-icon img {
+		width:23px;
+	}
+	body.formation-single .formations.list-formations a.financement-icon{
+		right:60px;
+	}
+	body.formation-single .formations.list-formations .share-icon{
+		right:20px;
+   		top: 17px;
 	}
 }

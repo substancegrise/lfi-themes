@@ -1,0 +1,75 @@
+title = "actualites"
+url = "/blog/:page?"
+layout = "default"
+class = "actus"
+is_hidden = 0
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/categorie"
+
+[blogPosts blogListArticle]
+pageNumber = "{{ :page }}"
+postsPerPage = 12
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/categorie"
+postPage = "blog/post"
+
+==
+<!-- LISTE ARTICLES --->
+
+
+{% set posts = blogListArticle.posts %}
+
+<section id="layout-agenda" class="container clearfix">
+	
+    {% partial "agenda-filter" %}
+	
+	{% set posts = blogListArticle.posts %}
+	
+	<div class="list-actus clearfix">
+	    {% for post in posts %}
+	        <div class="col-xs-6 col-sm-4 list-item row-list {{ record.categories[0].formation_category|lower }}">
+            	<div class="caption">
+            		<div class="heading">{{ category }}
+			            {% for category in post.categories %}
+			            <a href="/blog/categorie/{{ category.slug }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+			            {% endfor %}
+		            	<span>{{ post.published_at|date('d/m') }}</span>
+		            </div>
+		        	<p class="summary hidden-sm hidden-xs">{{ post.summary[:50]|striptags ~ ' ...' }}</p>
+		        	<a class="title" href="{{ post.url }}">{{ post.title }}</a>
+               	</div>
+               	
+	        	{% if post.featured_images.count %}
+	            <a href="{{ post.url }}" class="cover">
+	            	<img data-src="{{ post.featured_images[0].filename }}" src="{{ post.featured_images[0].path }}" alt="{{ post.featured_images[0].description }}" style="max-width: 100%" />
+		        	<img class="view-icon" src="/themes/lfi/assets/images/icon-eye-blanc.png" />
+	            </a>
+	            <share-button data-url='{{ post.url }}' class="hidden-sm share-icon"></share-button>
+	        	{% endif %}
+	        </div>
+	    {% else %}
+	        <div class="no-data">{{ noRecordsMessage }}</div>
+	    {% endfor %}
+	</div>
+	{% if posts.lastPage > 1 %}
+	<ul class="pagination">
+	    {% if posts.currentPage > 1 %}
+	    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}"><</a></li>
+	    {% endif %}
+	
+	    {% for page in 1..posts.lastPage %}
+	    <li class="{{ posts.currentPage == page ? 'active' : null }}">
+	        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+	    </li>
+	    {% endfor %}
+	
+	    {% if posts.lastPage > posts.currentPage %}
+	    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}">></a></li>
+	    {% endif %}
+	</ul>
+	{% endif %}	
+</section>

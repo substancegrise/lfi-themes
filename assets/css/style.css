@@ -8,10 +8,10 @@
 }
 @font-face {
     font-family: MelbourneBold;
-    src: url('../fonts/lfi/Melbourne-bold.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/lfi/Melbourne-bold.woff') format('woff'),
-    url('../fonts/lfi/Melbourne-bold.ttf')  format('truetype'),
-    url('../fonts/lfi/Melbourne-bold.svg') format('svg');
+    src: url('../fonts/lfi/Melbourne-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/lfi/Melbourne-Bold.woff') format('woff'),
+    url('../fonts/lfi/Melbourne-Bold.ttf')  format('truetype'),
+    url('../fonts/lfi/Melbourne-Bold.svg') format('svg');
 }
 @font-face {
     font-family: Lato;
@@ -930,7 +930,7 @@ body.presentation #layout-presentation-directeur h3{
 }
 
 body.presentation #layout-presentation-first .presentation{
-	padding-top:15vh;
+	padding-top:13vh;
 }
 
 body.presentation #layout-presentation-first .right{

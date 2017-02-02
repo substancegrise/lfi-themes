@@ -61,7 +61,11 @@ $(document).ready(function() {
 		});
 	}
 
-	if($(".list-item .share-icon").length || $(".full-actus .share-icon").length){
+	if($(".full-actus .share-icon").length){		  
+		new ShareButton({ui: {flyout:"middle right",buttonText:""}, networks: {reddit: {enabled:false},linkedin: {enabled:false},whatsapp: {enabled:false},pinterest: {enabled:false},email: {enabled:false}}});
+	}
+	
+	if($(".list-item .share-icon").length){
 		new ShareButton({
 			ui : {
 				flyout : "middle right",

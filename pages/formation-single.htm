@@ -12,38 +12,6 @@ displayColumn = "name"
 notFoundMessage = "Record not found"
 
 
-[builderList moduGeneral]
-modelClass = "Lfi\Formations\Models\Program"
-scope = "-"
-displayColumn = "program_title"
-noRecordsMessage = "No records found"
-detailsPage = "-"
-detailsUrlParameter = "id"
-pageNumber = "{{ :page }}"
-sortColumn = "program_name"
-sortDirection = "asc"
-
-[builderList moduPro]
-modelClass = "Lfi\Formations\Models\Professional"
-scope = "-"
-displayColumn = "profes_title"
-noRecordsMessage = "No records found"
-detailsPage = "-"
-detailsUrlParameter = "id"
-pageNumber = "{{ :page }}"
-sortColumn = "profes_name"
-sortDirection = "asc"
-
-[builderList ModuJour]
-modelClass = "Lfi\Formations\Models\Day"
-scope = "-"
-displayColumn = "day_number"
-noRecordsMessage = "No records found"
-detailsPage = "-"
-detailsUrlParameter = "id"
-sortColumn = "day_number"
-sortDirection = "asc"
-
 [builderList financement]
 modelClass = "Lfi\Formations\Models\Finance"
 scope = "-"
@@ -165,32 +133,24 @@ pageNumber = "{{ :page }}"
 	        
 			<div class="row modules">
 				<div class="col-sm-6 generaux">
-					
-					<!-- LISTE MODULE GENERALES --->
-					{% set records = moduGeneral.records %}
-					{% set displayColumn = moduGeneral.displayColumn %}
-					{% set noRecordsMessage = moduGeneral.noRecordsMessage %}
-					{% set detailsPage = moduGeneral.detailsPage %}
-					{% set detailsKeyColumn = moduGeneral.detailsKeyColumn %}
-					{% set detailsUrlParameter = moduGeneral.detailsUrlParameter %}
-					
-					{% if records.count > 0 %}
+										
+					{% if record.programsgeneral.count > 0 %}
 					<a data-toggle="collapse" href="#collapseGen"><h4>MODULES<br /> GENERAUX</h4></a>
 					<ul class="record-list collapse" id="collapseGen">
-					    {% for record in records %}
+							{% for recordwith in record.programsgeneral %}
 					        <li>
 					            {# Use spaceless tag to remove spaces inside the A tag. #}
 					            {% spaceless %}
 					                {% if detailsPage %}
-					                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+					                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(recordwith, detailsKeyColumn) }) }}">
 					                {% endif %}
 					
-					                		<h5>{{ attribute(record, displayColumn) }}</h5>
+					                		<h5>{{ attribute(recordwith, displayColumn) }}</h5>
 					                        <h5>{{record.program_name}}</h5>
 					                        <div class="module-text">
-						                        <p class='short-text'>{{record.program_short}}</p>
+						                        <p class='short-text'>{{recordwith.program_short}}</p>
 						                        <p class="divider"></p>
-						                        <p class='text'>{{record.program_text}}</p>
+						                        <p class='text'>{{recordwith.program_text}}</p>
 					                        </div>
 					                        {% if detailsPage %}
 					                    </a>
@@ -206,30 +166,23 @@ pageNumber = "{{ :page }}"
 				<div class="col-sm-6 professionnels">
 					<!-- LISTE MODULE PROFESSIONNELS --->
 					
-					{% set records = moduPro.records %}
-					{% set displayColumn = moduPro.displayColumn %}
-					{% set noRecordsMessage = moduPro.noRecordsMessage %}
-					{% set detailsPage = moduPro.detailsPage %}
-					{% set detailsKeyColumn = moduPro.detailsKeyColumn %}
-					{% set detailsUrlParameter = moduPro.detailsUrlParameter %}
-					
-					{% if records.count > 0 %}
+					{% if record.programsprofessionnel.count > 0 %}
 					<a data-toggle="collapse" href="#collapsePro"><h4>MODULES<br /> PROFESSIONNELS</h4></a>
 					<ul class="record-list collapse" id="collapsePro">
-					    {% for record in records %}
+					    {% for recordwith in record.programsprofessionnel %}
 					        <li>
 					            {# Use spaceless tag to remove spaces inside the A tag. #}
 					            {% spaceless %}
 					                {% if detailsPage %}
-					                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+					                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(recordwith, detailsKeyColumn) }) }}">
 					                {% endif %}
 					
-					                		<h5>{{ attribute(record, displayColumn) }}</h5>
-					                        <h5>{{record.profes_name}}</h5>
+					                		<h5>{{ attribute(recordwith, displayColumn) }}</h5>
+					                        <h5>{{recordwith.profes_name}}</h5>
 					                        <div class="module-text">
-						                        <p class='short-text'>{{record.profes_short}}</p>
+						                        <p class='short-text'>{{recordwith.profes_short}}</p>
 						                        <p class="divider"></p>
-						                        <p class='text'>{{record.profes_text}}</p>
+						                        <p class='text'>{{recordwith.profes_text}}</p>
 					                        </div>
 					
 					                {% if detailsPage %}
@@ -246,31 +199,24 @@ pageNumber = "{{ :page }}"
 		        
 				<div class="col-sm-12 jours">
 			        <!-- LISTE MODULE JOURS --->
-					{% set records = ModuJour.records %}
-					{% set displayColumn = ModuJour.displayColumn %}
-					{% set noRecordsMessage = ModuJour.noRecordsMessage %}
-					{% set detailsPage = ModuJour.detailsPage %}
-					{% set detailsKeyColumn = ModuJour.detailsKeyColumn %}
-					{% set detailsUrlParameter = ModuJour.detailsUrlParameter %}
-					
-					{% if records.count > 0 %}
+					{% if record.programsday.count > 0 %}
 					<a data-toggle="collapse" href="#collapseJours"><h4>MODULES JOURS</h4></a>
 					<ul class="record-list collapse" id="collapseJours">
-					    {% for record in records %}
+					    {% for recordwith in record.programsday %}
 					        <li>
 					            {# Use spaceless tag to remove spaces inside the A tag. #}
 					            {% spaceless %}
 					                {% if detailsPage %}
-					                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+					                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(recordwith, detailsKeyColumn) }) }}">
 					                {% endif %}
 					
-					                		<h5>{{ attribute(record, displayColumn) }}</h5>
-					                        <h5>{{record.day_title1}}</h5>
-					                        <h5>{{record.day_title2}}</h5>
+					                		<h5>{{ attribute(recordwith, displayColumn) }}</h5>
+					                        <h5>{{recordwith.day_title1}}</h5>
+					                        <h5>{{recordwith.day_title2}}</h5>
 					                        <div class="module-text">
-						                        <p class='short-text'>{{record.day_speaker}}</p>
+						                        <p class='short-text'>{{recordwith.day_speaker}}</p>
 						                        <p class="divider"></p>
-						                        <p class='text'>{{record.day_texte}}</p>
+						                        <p class='text'>{{recordwith.day_texte}}</p>
 					                        </div>
 					
 					                {% if detailsPage %}

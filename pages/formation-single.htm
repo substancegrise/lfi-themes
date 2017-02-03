@@ -132,7 +132,7 @@ pageNumber = "{{ :page }}"
 	        </div>
 	        
 			<div class="row modules">
-				<div class="col-sm-6 generaux">
+				<div class="{{ record.programsprofessionnel.count > 0 ? 'col-sm-6' : 'col-sm-12' }} generaux">
 										
 					{% if record.programsgeneral.count > 0 %}
 					<a data-toggle="collapse" href="#collapseGen"><h4>MODULES<br /> GENERAUX</h4></a>
@@ -163,7 +163,7 @@ pageNumber = "{{ :page }}"
 					</ul>
 					{% endif %}
 		        </div>
-				<div class="col-sm-6 professionnels">
+				<div class="{{ record.programsgeneral.count > 0 ? 'col-sm-6' : 'col-sm-12' }} professionnels">
 					<!-- LISTE MODULE PROFESSIONNELS --->
 					
 					{% if record.programsprofessionnel.count > 0 %}

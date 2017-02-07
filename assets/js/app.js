@@ -189,7 +189,27 @@ $(document).ready(function() {
 			currentPage = thispage.page/1;
 		}
 	});
-	
+	/************* BOUTON ***************/
+
+	var hoverSpan = $('.btn span');
+
+	$( ".btn" ).mouseenter(function() {
+		//remove reset and add enter on hover
+		$(hoverSpan).removeClass('reset').addClass('enter');
+
+	})
+		.mouseleave(function() {
+			//remove enter and add leave
+
+			$(hoverSpan).removeClass('enter').addClass('leave');
+
+			//remove leave and add reset after 500ms delay
+			setTimeout(function() {
+				$(hoverSpan).removeClass('leave').addClass('reset');
+			}, 500);
+
+		});
+
 	
 	/************* VIDEO PLAYER ***************/
 	var vie = (function(){
@@ -302,3 +322,4 @@ function addActusSlide(data) {
 	$('#posts-list-'+(data.page-1)).after(data.content);
 	$.oc.stripeLoadIndicator.hide();
 }
+

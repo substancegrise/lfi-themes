@@ -74,8 +74,17 @@ displayColumn = "day_number"
 noRecordsMessage = "No records found"
 detailsPage = "-"
 detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 sortColumn = "day_number"
 sortDirection = "asc"
+
+[blogPosts blogPosts2]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = "blog/post"
 ==
 {% set records = builderList.records %}
 {% set displayColumn = builderList.displayColumn %}
@@ -445,3 +454,6 @@ sortDirection = "asc"
         {% endif %}
     </ul>
 {% endif %}
+
+<!--- BLOG --->
+{% component 'blogPosts2' %}

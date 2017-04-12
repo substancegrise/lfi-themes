@@ -1,4 +1,4 @@
-title = "SE FORMER AUX METIERS DES MUSIQUES ACTUELLES"
+title = "SE FORMER AUX MÉTIERS DES MUSIQUES ACTUELLES"
 url = "/"
 layout = "layout-header-video"
 is_hidden = 0
@@ -42,11 +42,11 @@ postPage = "blog/post"
 		<div class="nav-table-formation col-md-10 hidden-sm hidden-xs">
 			<div class="nav-row-formation">
 				<div class="nav-formation prequalification nav-button">
-					<span class="button-heading ">Decouvrir</span><br />
+					<span class="button-heading ">Découvrir</span><br />
 					<span class="button-text">un metier</span>
 				</div>
 				<div class="nav-formation competence nav-button">
-					<span class="button-heading">Developper</span><br />
+					<span class="button-heading">Développer</span><br />
 					<span class="button-text">Mes competences</span>
 				</div>
 				<div class="nav-formation habilitation nav-button">
@@ -59,7 +59,7 @@ postPage = "blog/post"
 				</div>
 				<div class="nav-formation acquis nav-button">
 					<span class="button-heading">Valider</span><br />
-					<span class="button-text">les acquis de mon experience</span>
+					<span class="button-text">les acquis de mon expérience</span>
 				</div>
 			</div>
 		</div>
@@ -69,12 +69,12 @@ postPage = "blog/post"
 				  <span class="caret"></span></button>
 				  <ul class="dropdown-menu">
 				    <li class="prequalification nav-button">
-						<span class="button-heading">Decouvrir</span><br />
-						<span class="button-text">un metier</span>
+						<span class="button-heading">Découvrir</span><br />
+						<span class="button-text">un métier</span>
 					</li>
 				    <li class="competence nav-button">
-						<span class="button-heading">Developper</span><br />
-						<span class="button-text">Mes competences</span>
+						<span class="button-heading">Développer</span><br />
+						<span class="button-text">Mes compétences</span>
 					</li>
 				    <li class="habilitation nav-button">
 						<span class="button-heading">Obtenir</span><br />
@@ -86,7 +86,7 @@ postPage = "blog/post"
 					</li>
 				    <li class="acquis nav-button">
 						<span class="button-heading">Valider</span><br />
-						<span class="button-text">les acquis de mon experience</span>
+						<span class="button-text">les acquis de mon expérience</span>
 					</li>
 				  </ul>
 				</div>
@@ -101,15 +101,15 @@ postPage = "blog/post"
 	                {% if detailsPage %}
 	                	<div class="caption">
 			                <a class="heading" href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
-	                			{{ attribute(record, displayColumn) }}
+	                			{{ attribute(record, displayColumn)| uppercase }}
 	                    	</a>
 	                   	</div>
 		                <a class="heading" href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
 		                    {% for categorie in record.categories %}
-		                        <div class="category hidden-sm">{{categorie.formation_category}}</div>
+		                        <div class="category hidden-sm">{{categorie.formation_category| uppercase}}</div>
 		                    {% endfor %}
 	        				<img src="{{ record.imghome.thumb(320,202, {'mode':'crop'}) }}" />
-	        				<img class="view-icon" src="/themes/lfi/assets/images/icon-eye-blanc.png" />
+	        				<a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}" data-toggle="tooltip" data-placement="bottom" title="VOIR LA FORMATION"><img class="view-icon" src="/themes/lfi/assets/images/icon-eye-blanc.png" /></a>
                     	</a>
 	                {% endif %}
 	            {% endspaceless %}
@@ -152,7 +152,7 @@ postPage = "blog/post"
 				<br />
 				TrEMA LAB </h2>
 				<div>
-					<span> travail et musiques actuelle </span>
+					<span> travail et musiques actuelles </span>
 				</div>
 			</div>
 			<div class="col-sm-9 description">
@@ -169,8 +169,8 @@ postPage = "blog/post"
 <section id="layout-agenda" class="">
 	<div class="container clearfix">
 		<h2> 
-			ACTUALITES<br />
-			EVENEMENTS<br />
+			ACTUALITÉS<br />
+			ÉVÉNEMENTS<br />
 			AGENDA
 		</h2>
 		

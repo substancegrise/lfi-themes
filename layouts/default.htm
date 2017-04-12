@@ -31,8 +31,7 @@ displayPhone = 1
             'assets/css/style.css',
             'assets/css/footer.css',
         ]|theme }}" rel="stylesheet">
-        
-        {% if placeholder('singleFormationBackground') %}
+		{% if placeholder('singleFormationBackground') %}
         	<style>
 				body.formation-single header .container-fluid {
 				    background: url({% placeholder singleFormationBackground %}) no-repeat center center #000;
@@ -77,8 +76,18 @@ displayPhone = 1
         <script src="{{ [
             'assets/js/jquery.js',
             'assets/js/lfi.script.js',
-            'assets/js/app.js'
-        ]|theme }}"></script>
+            'assets/js/app.js',
+            'assets/js/bootstrap.js'
+        ]|theme }}" >
+		</script>
+
+
+		<script type="text/javascript">
+					$(document).ready(function(){
+						$('[data-toggle="tooltip"]').tooltip();
+					});
+		</script>
+
         {% framework extras %}
         {% scripts %}
     </body>

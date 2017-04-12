@@ -85,6 +85,18 @@ noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 categoryPage = 404
 postPage = "blog/post"
+
+[ScrollTop]
+speedScrollTopLynx = 300
+sizeScrollLynx = 50
+positionScrollLynx = "bottomright"
+UnitScrollLynx = "%"
+horizontalUnitsScrollLynx = 2
+verticalUnitsScrollLynx = 7
+arrowColorScrollLynx = "#000"
+arrowHoverColorScrollLynx = "#2E2E2E"
+backgroundColorScrollLynx = "#FFF"
+backgroundHoverColorScrollLynx = "#E6E6E6"
 ==
 {% set records = builderList.records %}
 {% set displayColumn = builderList.displayColumn %}
@@ -325,6 +337,7 @@ postPage = "blog/post"
                         <div>{{record.program_text}}</div>
                         {% if detailsPage %}
                     </a>
+
                 {% endif %}
             {% endspaceless %}
         </li>
@@ -425,7 +438,10 @@ postPage = "blog/post"
                         <div>{{record.day_title1}}</div>
                         <div>{{record.day_title2}}</div>
                         <div>{{record.day_speaker}}</div>
-                        <div>{{record.day_texte}}</div>
+
+                        <div>"POUET"</div>
+                        <!-- RETOUR A  LIGNE--->
+                        <div>{{record.day_texte|nl2br}}</div>
 
                 {% if detailsPage %}
                     </a>
@@ -457,3 +473,4 @@ postPage = "blog/post"
 
 <!--- BLOG --->
 {% component 'blogPosts2' %}
+<!--- SCROLL --->

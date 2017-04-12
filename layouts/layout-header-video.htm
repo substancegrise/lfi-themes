@@ -77,8 +77,14 @@ displayPhone = 1
         <script src="{{ [
             'assets/js/jquery.js',
             'assets/js/lfi.script.js',
-            'assets/js/app.js'
+            'assets/js/app.js',
+            'assets/js/bootstrap.js'
         ]|theme }}"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('[data-toggle="tooltip"]').tooltip();
+			});
+		</script>
         {% framework extras %}
         {% scripts %}
     </body>

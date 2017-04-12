@@ -20,7 +20,6 @@ noRecordsMessage = "No records found"
 detailsPage = "-"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
-
 ==
 {% set record = builderDetails.record %}
 {% set displayColumn = builderDetails.displayColumn %}
@@ -42,8 +41,8 @@ pageNumber = "{{ :page }}"
 		
 	<div class="container next-session">
 		<h3>Prochaine session</h3>
-		<span>FORMATION DU :</span> <span>{{ record.start|date("d-m-Y","Europe/Paris") }}</span> <span>> {{ record.end|date("d-m-Y","Europe/Paris") }}</span> <br />
-		<span>CANDIDATURE DU :</span> <span>{{ record.candidate_start|date("d-m-Y","Europe/Paris") }}</span> <span>> {{ record.candidate_end|date("d-m-Y","Europe/Paris") }}</span>
+		<span>FORMATION DU :</span> <span>{{ record.start }}</span> <span>> {{ record.end }}</span> <br />
+		<span>CANDIDATURE DU :</span> <span>{{ record.candidate_start }}</span> <span>> {{ record.candidate_end }}</span>
 	</div>
 
 	<div class="container clearfix">
@@ -52,26 +51,26 @@ pageNumber = "{{ :page }}"
 	        	<div class="row">
 	            	<div class='col-md-6'>
 	                    {% for categorie in record.categories %}
-	                        <h2>{{categorie.formation_category| uppercase}}</h2>
+	                        <h2>{{categorie.formation_category}}</h2>
 	                    {% endfor %}
-	                    <h3>{{ record.subtitle| uppercase }}</h3>
-	                    <h3>{{ record.level| uppercase }}</h3>
+	                    <h3>{{ record.subtitle }}</h3>
+	                    <h3>{{ record.level }}</h3>
 	                </div>
 	            	<div class='col-md-5'>
 	        			<div class="row">
 			            	<div class='col-xs-3 text-center icono'>
 			            		<div class="agenda"></div>
-			            		{{ record.start|date("d M","Europe/Paris")| uppercase }}<br />
-			            		[{{ record.time| uppercase }}]
+			            		{{ record.start|date("d M","Europe/Paris") }}<br />
+			            		[{{ record.time }}]
 			                </div>
 			            	<div class='col-xs-3 text-center icono'>
 			            		<div class="heures"></div>
-			            		{{ record.hours| uppercase }}<br />
+			            		{{ record.hours }}<br />
 			            		HEURES
 			                </div>
 			            	<div class='col-xs-3 text-center icono'>
 			            		<div class="places"></div>
-			            		{{ record.place| uppercase }}<br />
+			            		{{ record.place }}<br />
 			            		PERS
 			                </div>
 			            	<div class='col-xs-3 text-center icono'>
@@ -81,7 +80,7 @@ pageNumber = "{{ :page }}"
 			                </div>
 	                	</div>
 	                </div>
-            		<a data-toggle="tooltip" data-placement="top left" title="FINANCEMENTS" class="financement-icon" href="#" ><img src="/themes/lfi/assets/images/icon-financement.png" /></a>
+            		<a class="financement-icon" href=""><img src="/themes/lfi/assets/images/icon-financement.png" /></a>
             		<share-button class="share-icon"></share-button>
 	            </div>
 	            <p>
@@ -131,8 +130,7 @@ pageNumber = "{{ :page }}"
 					<div class="col-sm-12 programme description">{{ record.program }}</div>
 		        </div>
 	        </div>
-
-            <!-- LISTE MODULE GENERAUX -->
+	        
 			<div class="row modules">
 				<div class="{{ record.programsprofessionnel.count > 0 ? 'col-sm-6' : 'col-sm-12' }} generaux">
 										
@@ -147,12 +145,17 @@ pageNumber = "{{ :page }}"
 					                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(recordwith, detailsKeyColumn) }) }}">
 					                {% endif %}
 					
-					                		<h5>{{ recordwith.program_title }}</h5>
-					                        <h5>{{recordwith.program_name}}</h5>
-					                        <div class="module-text ">
+<<<<<<< HEAD
+					                		<!--<h5>{{ attribute(record, displayColumn) }}</h5>-->
+					                       <h5>{{record.program_name}}</h5>
+=======
+					                		<h5>{{ attribute(recordwith, displayColumn) }}</h5>
+					                        <h5>{{record.program_name}}</h5>
+>>>>>>> dom-lfi-theme
+					                        <div class="module-text">
 						                        <p class='short-text'>{{recordwith.program_short}}</p>
 						                        <p class="divider"></p>
-						                        <p class='text'>{{recordwith.program_text|nl2br}}</p>
+						                        <p class='text'>{{recordwith.program_text}}</p>
 					                        </div>
 					                        {% if detailsPage %}
 					                    </a>
@@ -166,7 +169,7 @@ pageNumber = "{{ :page }}"
 					{% endif %}
 		        </div>
 				<div class="{{ record.programsgeneral.count > 0 ? 'col-sm-6' : 'col-sm-12' }} professionnels">
-					<!-- LISTE MODULE PROFESSIONNELS -->
+					<!-- LISTE MODULE PROFESSIONNELS --->
 					
 					{% if record.programsprofessionnel.count > 0 %}
 					<a data-toggle="collapse" href="#collapsePro"><h4>MODULES<br /> PROFESSIONNELS</h4></a>
@@ -179,12 +182,12 @@ pageNumber = "{{ :page }}"
 					                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(recordwith, detailsKeyColumn) }) }}">
 					                {% endif %}
 					
-					                		<h5>{{ recordwith.profes_title }}</h5>
+					                		<h5>{{ attribute(recordwith, displayColumn) }}</h5>
 					                        <h5>{{recordwith.profes_name}}</h5>
 					                        <div class="module-text">
 						                        <p class='short-text'>{{recordwith.profes_short}}</p>
 						                        <p class="divider"></p>
-						                        <p class='text'>{{recordwith.profes_text|nl2br}}</p>
+						                        <p class='text'>{{recordwith.profes_text}}</p>
 					                        </div>
 					
 					                {% if detailsPage %}
@@ -200,7 +203,7 @@ pageNumber = "{{ :page }}"
 		        </div>
 		        
 				<div class="col-sm-12 jours">
-			        <!-- LISTE MODULE JOURS -->
+			        <!-- LISTE MODULE JOURS --->
 					{% if record.programsday.count > 0 %}
 					<a data-toggle="collapse" href="#collapseJours"><h4>MODULES JOURS</h4></a>
 					<ul class="record-list collapse" id="collapseJours">
@@ -212,13 +215,13 @@ pageNumber = "{{ :page }}"
 					                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(recordwith, detailsKeyColumn) }) }}">
 					                {% endif %}
 					
-					                		<h5>{{ recordwith.day_number }}</h5>
+					                		<h5>{{ attribute(recordwith, displayColumn) }}</h5>
 					                        <h5>{{recordwith.day_title1}}</h5>
 					                        <h5>{{recordwith.day_title2}}</h5>
 					                        <div class="module-text">
 						                        <p class='short-text'>{{recordwith.day_speaker}}</p>
 						                        <p class="divider"></p>
-						                        <p class='text'>{{recordwith.day_texte|nl2br}}</p>
+						                        <p class='text'>{{recordwith.day_texte}}</p>
 					                        </div>
 					
 					                {% if detailsPage %}

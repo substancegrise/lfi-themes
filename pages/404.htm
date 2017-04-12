@@ -1,6 +1,39 @@
 title = "page 404"
 url = "/404"
-layout = "default"
+layout = "default404"
 description = "Oops !"
 is_hidden = 0
+class = 'page404'
+
+[builderList financement]
+modelClass = "Lfi\Formations\Models\Finance"
+scope = "-"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
+
+<section id="layout-404">
+    <div class="container clearfix">
+        <div class="row clearfix">
+            <div class="col-sm-12">
+                <a class="back" href="/">Retour a l'accueil</a>
+            </div>
+        </div>
+        <div class="row clearfix presentation">
+            <div class="col-sm-4 left">
+                <img class="hidden-xs" style="width:100%;" src="/themes/lfi/assets/images/logo-lfi-presentation.png" />
+            </div>
+            <div class="col-sm-6 col-sm-offset-3 title text-center">
+                <ul>
+                    <li><H2>T'AS TOUT PÉTÉ</H2></li>
+                    <li><H2>[ CET PAGE N'EXISTE PAS]</H2></li>
+                </ul>
+                <a class="next teaser" href="/">VOIR LE TEASER</a>
+            </div>
+        </div>
+    </div>
+
+</section>

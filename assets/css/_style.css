@@ -1,91 +1,4 @@
-/* Fonts christian */
-
-
-@font-face {
-    font-family: 'dosissemibold';
-    src: url('../fonts/lfi/dosis-semibold-webfont.eot');
-    src: url('../fonts/lfi/dosis-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/lfi/dosis-semibold-webfont.woff2') format('woff2'),
-         url('../fonts/lfi/dosis-semibold-webfont.woff') format('woff'),
-         url('../fonts/lfi/dosis-semibold-webfont.svg#dosissemibold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: Dosisregular;
-    src: url('../fonts/lfi/dosis-regular-webfont.eot');
-    src: url('../fonts/lfi/dosis-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/lfi/dosis-regular-webfont.woff2') format('woff2'),
-         url('../fonts/lfi/dosis-regular-webfont.woff') format('woff'),
-         url('../fonts/lfi/dosis-regular-webfont.svg#dosisregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'dosismedium';
-    src: url('../fonts/lfi/dosis-medium-webfont.eot');
-    src: url('../fonts/lfi/dosis-medium-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/lfi/dosis-medium-webfont.woff2') format('woff2'),
-         url('../fonts/lfi/dosis-medium-webfont.woff') format('woff'),
-         url('../fonts/lfi/dosis-medium-webfont.svg#dosismedium') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'dosislight';
-    src: url('../fonts/lfi/dosis-light-webfont.eot');
-    src: url('../fonts/lfi/dosis-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/lfi/dosis-light-webfont.woff2') format('woff2'),
-         url('../fonts/lfi/dosis-light-webfont.woff') format('woff'),
-         url('../fonts/lfi/dosis-light-webfont.svg#dosislight') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'dosisextralight';
-    src: url('../fonts/lfi/dosis-extralight-webfont.eot');
-    src: url('../fonts/lfi/dosis-extralight-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/lfi/dosis-extralight-webfont.woff2') format('woff2'),
-         url('../fonts/lfi/dosis-extralight-webfont.woff') format('woff'),
-         url('../fonts/lfi/dosis-extralight-webfont.svg#dosisextralight') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'dosisextrabold';
-    src: url('../fonts/lfi/dosis-extrabold-webfont.eot');
-    src: url('../fonts/lfi/dosis-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/lfi/dosis-extrabold-webfont.woff2') format('woff2'),
-         url('../fonts/lfi/dosis-extrabold-webfont.woff') format('woff'),
-         url('../fonts/lfi/dosis-extrabold-webfont.svg#dosisextrabold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: Dosisbold;
-    src: url('dosis-bold-webfont.eot');
-    src: url('../fonts/lfi/dosis-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/lfi/dosis-bold-webfont.woff2') format('woff2'),
-         url('../fonts/lfi/dosis-bold-webfont.woff') format('woff'),
-         url('../fonts/lfi/dosis-bold-webfont.svg#dosisbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
 /* Fonts */
-
 @font-face {
     font-family: Melbourne;
     src: url('../fonts/lfi/Melbourne.eot?#iefix') format('embedded-opentype'),
@@ -126,7 +39,7 @@ img{
 h2{
 	text-transform: uppercase;
 	line-height:1;
-	font-family:Dosisregular;
+	font-family:MelbourneBold;
 }
 
 ul li{
@@ -295,7 +208,7 @@ section{
 
 .section-title .nav-formation .button-heading,
 .section-title .nav-formation .button-text{
-	font-family:Dosisregular;
+	font-family:MelbourneBold;
 	font-size:28px;
 	text-transform:uppercase;
 }
@@ -308,7 +221,7 @@ section{
     top: 8px;
     font-size: 18px;
     padding: 10px;
-    font-family: Dosisregular;
+    font-family: Melbourne;
  }
  
  .section-title .nav-collapse-formation .dropdown button.btn .caret {
@@ -337,7 +250,7 @@ section{
 }
 
 .section-title .nav-collapse-formation ul.dropdown-menu .button-heading{
-	font-family:dosisbold;
+	font-family:MelbourneBold;
 	text-transform:uppercase;
 }
 
@@ -439,7 +352,7 @@ section{
     position: absolute;
     bottom: 20px;
     left: 20px;
-    font-family: Dosisregular;
+    font-family: Melbourne;
     color: #fff;
 }
 
@@ -465,13 +378,13 @@ section{
 
 .list-actus .list-item .caption .heading a{
 	color:#fff;
-	font-family: Dosisregular;
+	font-family: Melbourne;
 	font-size:16px;
 }
 
 .list-actus .list-item .caption .heading span{
     float: right;
-    font-family: Dosisregular;
+    font-family: Melbourne;
     font-size: 30px;
     line-height: 1.4em;
 }
@@ -479,7 +392,7 @@ section{
 .list-actus .list-item .caption .summary,
 .list-actus .list-item .caption .title{
     color: #fff;
-    font-family: Dosisregular;
+    font-family: MelbourneBold;
     font-size: 16px;
     padding-right: 10px;
     padding-left: 10px;
@@ -523,7 +436,6 @@ body.actus section#layout-agenda{
     top: 30%;
     width: 100%;
     padding: 0 20px;
-    font-family: dosisregular;
 }
 
 
@@ -627,7 +539,7 @@ a.fiche-icon {
 
 .formations.list-formations .description h4{
 	font-size:21px;
-    font-family: Dosisregular;
+    font-family: MelbourneBold;
 }
 
 .formations.list-formations .description h5{
@@ -636,7 +548,7 @@ a.fiche-icon {
     background-color: #e1261c;
     padding-top: 3px;
     margin-bottom: 0;
-    font-family:Dosisregular;
+    font-family:MelbourneBold;
  	box-shadow: 0px 0 0 #e1261c, -15px 0 0 #e1261c;
 }
 
@@ -777,7 +689,7 @@ body.formation-single .formations.list-formations  .share-icon{
 .temoignage .bottom-labels,
 .full-actus .top-labels,
 .full-actus .bottom-labels{
-    font-family: Dosisregular;
+    font-family: MelbourneBold;
     text-transform: uppercase;
 }
 
@@ -847,7 +759,7 @@ body.formation-single .formations.list-formations  .share-icon{
     font-size: 48px;
     display: block;
     max-width: 70%;
-    font-family: Dosisregular;
+    font-family: MelbourneBold;
 }
 
 .full-actus a.category,
@@ -863,7 +775,7 @@ body.formation-single .formations.list-formations  .share-icon{
 
 .full-actus .date {
     font-size: 18px;
-    font-family: Dosisregular;
+    font-family: Melbourne;
     padding: 10px 0;
     border-bottom: 1px solid #fff;
     border-top: 1px solid #fff;
@@ -872,14 +784,14 @@ body.formation-single .formations.list-formations  .share-icon{
 
 .full-actus p.summary {
     font-size: 26px;
-    font-family: Dosisregular;
+    font-family: Melbourne;
     display: block;
     max-width: 60%;
 }
 
 body.actus .back{
 	font-size:18px;
-    font-family: Dosisregular;
+    font-family: Melbourne;
     text-transform:uppercase;
     color: #e1261c;
     margin-top:15px;
@@ -911,7 +823,7 @@ section#layout-single-formation > .container.next-session{
     color: #fff;
 	text-align:center;
     position: relative;
-    font-family: Dosisregular;
+    font-family: Melbourne;
 }
 
 section#layout-single-formation > .container.next-session h3 {
@@ -930,7 +842,7 @@ section#layout-single-formation .conditions h4,
 section#layout-single-formation .programme h4{
 	font-size: 16px;
 	color:#fff;
-	font-family:Dosisregular;
+	font-family:MelbourneBold;
     background-color: #e1261c;
 	text-transform:uppercase;
 }
@@ -991,7 +903,7 @@ section#layout-tremalab .row{
 }
 
 section#layout-tremalab h2{
-	font-family:Dosisregular;
+	font-family:MelbourneBold;
 }
 
 section#layout-tremalab .left-title div{
@@ -1035,6 +947,18 @@ section#layout-tremalab .description{
 	max-width:170px;
 }
 
+/***** PAGE 404
+**************************************/
+
+
+
+body.page404 #layout-presentation-first{
+    background: url(../images/backgrounds/presentation-first.jpg) no-repeat center center #262626;
+    background-size: cover;
+    min-height:100vh;
+}
+
+
 /***** PAGE PRESENTATION
 **************************************/
 
@@ -1050,7 +974,7 @@ body.presentation a.btn{
 body.presentation .back,
 body.presentation .next{
 	font-size:18px;
-    font-family: Dosisregular;
+    font-family: Melbourne;
     text-transform:uppercase;
     color: #FFF;
     margin-top:15px;
@@ -1109,7 +1033,7 @@ body.presentation #layout-presentation-formation{
 }
 body.presentation #layout-presentation-directeur h3{
 	font-size:18px;
-    font-family: Dosisregular;
+    font-family: Melbourne;
     color: #FFF;
 }
 

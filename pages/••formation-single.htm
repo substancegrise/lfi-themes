@@ -42,8 +42,8 @@ pageNumber = "{{ :page }}"
 		
 	<div class="container next-session">
 		<h3>Prochaine session</h3>
-		<span>FORMATION DU :</span> <span>{{ record.start|date("d-m-Y","Europe/Paris") }}</span> <span>> {{ record.end|date("d-m-Y","Europe/Paris") }}</span> <br />
-		<span>CANDIDATURE DU :</span> <span>{{ record.candidate_start|date("d-m-Y","Europe/Paris") }}</span> <span>> {{ record.candidate_end|date("d-m-Y","Europe/Paris") }}</span>
+		<span>FORMATION DU :</span> <span>{{ record.start }}</span> <span>> {{ record.end }}</span> <br />
+		<span>CANDIDATURE DU :</span> <span>{{ record.candidate_start }}</span> <span>> {{ record.candidate_end }}</span>
 	</div>
 
 	<div class="container clearfix">
@@ -52,26 +52,26 @@ pageNumber = "{{ :page }}"
 	        	<div class="row">
 	            	<div class='col-md-6'>
 	                    {% for categorie in record.categories %}
-	                        <h2>{{categorie.formation_category| uppercase}}</h2>
+	                        <h2>{{categorie.formation_category}}</h2>
 	                    {% endfor %}
-	                    <h3>{{ record.subtitle| uppercase }}</h3>
-	                    <h3>{{ record.level| uppercase }}</h3>
+	                    <h3>{{ record.subtitle }}</h3>
+	                    <h3>{{ record.level }}</h3>
 	                </div>
 	            	<div class='col-md-5'>
 	        			<div class="row">
 			            	<div class='col-xs-3 text-center icono'>
 			            		<div class="agenda"></div>
-			            		{{ record.start|date("d M","Europe/Paris")| uppercase }}<br />
-			            		[{{ record.time| uppercase }}]
+			            		{{ record.start|date("d M","Europe/Paris") }}<br />
+			            		[{{ record.time }}]
 			                </div>
 			            	<div class='col-xs-3 text-center icono'>
 			            		<div class="heures"></div>
-			            		{{ record.hours| uppercase }}<br />
+			            		{{ record.hours }}<br />
 			            		HEURES
 			                </div>
 			            	<div class='col-xs-3 text-center icono'>
 			            		<div class="places"></div>
-			            		{{ record.place| uppercase }}<br />
+			            		{{ record.place }}<br />
 			            		PERS
 			                </div>
 			            	<div class='col-xs-3 text-center icono'>
@@ -81,7 +81,7 @@ pageNumber = "{{ :page }}"
 			                </div>
 	                	</div>
 	                </div>
-            		<a data-toggle="tooltip" data-placement="top left" title="FINANCEMENTS" class="financement-icon" href="#" ><img src="/themes/lfi/assets/images/icon-financement.png" /></a>
+            		<a class="financement-icon" href=""><img src="/themes/lfi/assets/images/icon-financement.png" /></a>
             		<share-button class="share-icon"></share-button>
 	            </div>
 	            <p>
@@ -132,7 +132,7 @@ pageNumber = "{{ :page }}"
 		        </div>
 	        </div>
 
-            <!-- LISTE MODULE GENERAUX -->
+	        
 			<div class="row modules">
 				<div class="{{ record.programsprofessionnel.count > 0 ? 'col-sm-6' : 'col-sm-12' }} generaux">
 										
@@ -149,7 +149,7 @@ pageNumber = "{{ :page }}"
 					
 					                		<h5>{{ recordwith.program_title }}</h5>
 					                        <h5>{{recordwith.program_name}}</h5>
-					                        <div class="module-text ">
+					                        <div class="module-text">
 						                        <p class='short-text'>{{recordwith.program_short}}</p>
 						                        <p class="divider"></p>
 						                        <p class='text'>{{recordwith.program_text|nl2br}}</p>

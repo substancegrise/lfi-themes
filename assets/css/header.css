@@ -256,6 +256,14 @@ body.formation-single h1 {
 	    opacity:1;
 	    -moz-opacity: 1;
 	}
+	body.presentation .navbar-default {
+		opacity:0;
+		-moz-opacity: 0;
+	}
+	body.presentation .navbar-default.affix {
+		opacity:1;
+		-moz-opacity: 1;
+	}
 }
 
 @media (max-width: 600px){

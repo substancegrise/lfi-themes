@@ -54,12 +54,20 @@ displayPhone = 1
         {% page %}
 		
 		<footer>
+			<div id="partners">
+				<div class="container">
+					{% partial "partners" %}
+				</div>
+			</div>
 			<div id="contactform">
 				<div class="container clearfix">
 					<div class="col-xs-6 col-sm-4 acces">
-						<h2> ACCÉS</h2>
+						<h2> ACCÈS</h2>
 						<p>
-							Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+							Notre centre est situé à Issoudun au cœur de la France, à 250 km au sud de Paris, entre Bourges
+							et Châteauroux, sur l'axe SNCF Paris-Limoges-Toulouse,
+							à 10 minutes de l'A20 et à
+							proximité de l'A71 et de l'axe SNCF Lyon-Nantes.
 						</p>
 						<div><a class="btn btn-info">GOOGLE MAP</a></div>
 
@@ -72,9 +80,9 @@ displayPhone = 1
 				</div>
 			</div>
 
-			<div id="partners">
+			<div id="line-space">
 		        <div class="container">
-        			{% partial "partners" %}
+
 		       	</div>
 		    </div>
 			<div id="contactform">
@@ -106,8 +114,10 @@ displayPhone = 1
 				$('.slider').slick({
 					slidesToShow: 6,
 					slidesToScroll: 1,
+					infinite: true,
 					autoplay: true,
-					autoplaySpeed: 2000
+					autoplaySpeed: 2000,
+					variableWidth: true
 				});
 
 			});

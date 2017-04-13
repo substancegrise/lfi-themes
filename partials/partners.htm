@@ -16,23 +16,28 @@ pageNumber = "{{ :page }}"
 {% set detailsUrlParameter = partners.detailsUrlParameter %}
 
 <h5>Les formations d’issoudun avec le soutien de :</h5>
+<p class="legal-txt">Cette opération est cofinancée par l’Union européenne.
+    L’Europe s’engage en région Centre-Val de Loire avec le Fonds Social Européen <br>
+    pour l’offre “Se former aux métiers des musiques actuelles”,
+    parcours métiers 2017-2020 à Issoudun.</p>
 <div class="row text-center">
     <div class="container">
 
-        <div class="slider">
+        <div class="slider partner partner col-sm-4 col-md-12 text-center">
             <div><img src="/storage/app/uploads/public/588/889/fb8/588889fb8db45795662279.png" /></div>
             <div><img src="/storage/app/uploads/public/588/88a/afe/58888aafe3df9425408288.png" /></div>
+            <div><img src="/storage/app/uploads/public/588/88b/b7a/58888bb7aea49529796961.png" /></div>
+            <div><img src="/storage/app/uploads/public/588/88c/0f2/58888c0f27fb4091832385.png" /></div>
+            <div><img src="/storage/app/uploads/public/58e/f57/b29/58ef57b293cd6455648929.png" /></div>
+            <div><img src="/storage/app/uploads/public/58e/f57/d03/58ef57d037fab268726176.png" /></div>
             <div><img src="/storage/app/uploads/public/588/88e/a86/58888ea86b035911368527.png" /></div>
-            <div><img src="/storage/app/uploads/public/588/88e/a86/58888ea86b035911368527.png" /></div>
-            <div><img src="/storage/app/uploads/public/588/88e/a86/58888ea86b035911368527.png" /></div>
-            <div><img src="/storage/app/uploads/public/588/88e/a86/58888ea86b035911368527.png" /></div>
-            <div><img src="/storage/app/uploads/public/588/88e/a86/58888ea86b035911368527.png" /></div>
-
+            <div><img src="/storage/app/uploads/public/588/88e/f4c/58888ef4c3167083114463.png" /></div>
+            <div><img src="/storage/app/uploads/public/58e/f57/680/58ef576804891841608511.png" /></div>
         </div>
 
     </div>
 
-    {% for record in records %}
+   <!-- {% for record in records %}
         <div class="partner col-xs-4 col-sm-4 col-md-2 text-center">
             {# Use spaceless tag to remove spaces inside the A tag. #}
             {% spaceless %}
@@ -47,5 +52,5 @@ pageNumber = "{{ :page }}"
         </div>
     {% else %}
         <div class="no-data">{{ noRecordsMessage }}</div>
-    {% endfor %}
+    {% endfor %}-->
 </div>

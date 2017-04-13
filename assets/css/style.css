@@ -962,6 +962,8 @@ section#layout-single-formation .conditions .desc{
 section#layout-agenda{
     background: url(../images/backgrounds/actualites.jpg) no-repeat center center #f2f2f2;
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 
@@ -983,6 +985,8 @@ section#layout-me-former{
 section#layout-tremalab{
     background: url(../images/backgrounds/home-tremalab.jpg) no-repeat center center #ededed;
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 section#layout-tremalab .row{
@@ -1091,6 +1095,8 @@ body.presentation #layout-presentation-first{
     background: url(../images/backgrounds/presentation-first.jpg) no-repeat center center #262626;
     background-size: cover;
     min-height:100vh;
+    background-attachment: fixed;
+    background-position: center;
 }
 body.presentation #layout-presentation-activite{
     background: url(../images/backgrounds/presentation-activite.jpg) no-repeat center center #262626;
@@ -1101,6 +1107,8 @@ body.presentation #layout-presentation-insertion{
     background: url(../images/backgrounds/presentation-insertion.jpg) no-repeat center center #262626;
     background-size: cover;
     min-height:90vh;
+    background-attachment: fixed;
+    background-position: center;
 }
 body.presentation #layout-presentation-formation{
     background: url(../images/backgrounds/presentation-formation.jpg) no-repeat center center #262626;
@@ -1260,4 +1268,27 @@ body.presentation #layout-presentation-insertion .presentation{
 		right:20px;
    		top: 17px;
 	}
+}
+
+.list-formations .list-item, .list-actus .list-item {
+    position: relative;
+}
+.list-formations .list-item:after, .list-actus .list-item:after{
+    content: "";
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255, 0, 0, 0);
+    pointer-events: none;
+}
+.list-formations .list-item:hover:after, .list-actus .list-item:hover:after{
+ background-color: rgba(255, 0, 0, 0.5);
+transition: all 0.3s ease-in-out;
+}
+
+.caption, .heading{
+    z-index: 2;
 }

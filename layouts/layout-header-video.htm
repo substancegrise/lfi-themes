@@ -60,6 +60,35 @@ displayPhone = 1
         			{% partial "partners" %}
 		       	</div>
 		    </div>
+
+			<div id="contactform">
+				<div class="container clearfix">
+					<div class="col-xs-6 col-sm-4 acces">
+						<h2> ACCÈS</h2>
+						<p>
+							Notre centre est situé à Issoudun au cœur de la France, à 250 km au sud de Paris, entre Bourges
+							et Châteauroux, sur l'axe SNCF Paris-Limoges-Toulouse,
+							à 10 minutes de l'A20 et à
+							proximité de l'A71 et de l'axe SNCF Lyon-Nantes.
+						</p>
+						<div><a class="btn btn-info">GOOGLE MAP</a></div>
+
+					</div>
+					<div class="col-xs-6 col-sm-8 map">
+
+						<div id='mapkit-7900'></div>
+					</div>
+					<br />
+				</div>
+			</div>
+
+			<div id="line-space">
+				<div class="container">
+
+				</div>
+			</div>
+
+
 			<div id="contactform">
 		        <div class="container clearfix">
 					{% component 'contactForm' %}
@@ -106,11 +135,193 @@ displayPhone = 1
             'assets/js/bootstrap.js',
             'assets/js/slick.min.js',
         ]|theme }}"></script>
+
+		<!-- Scripts TOOLTIP -->
 		<script type="text/javascript">
 			$(document).ready(function(){
 				$('[data-toggle="tooltip"]').tooltip();
 			});
 		</script>
+
+
+		<!-- Scripts MAP CONTACT-->
+		<script src="https://maps.googleapis.com/maps/api/js?key=&extension=.js"></script>
+		<script src="https://cdn.mapkit.io/v1/infobox.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+		<link href="https://cdn.mapkit.io/v1/infobox.css" rel="stylesheet" >
+
+
+		<script>
+
+			google.maps.event.addDomListener(window, 'load', init);
+			var map, markersArray = [];
+
+			function bindInfoWindow(marker, map, location) {
+				google.maps.event.addListener(marker, 'click', function() {
+					function close(location) {
+						location.ib.close();
+						location.infoWindowVisible = false;
+						location.ib = null;
+					}
+
+					if (location.infoWindowVisible === true) {
+						close(location);
+					} else {
+						markersArray.forEach(function(loc, index){
+							if (loc.ib && loc.ib !== null) {
+								close(loc);
+							}
+						});
+
+						var boxText = document.createElement('div');
+						boxText.style.cssText = 'background: #fff;';
+						boxText.classList.add('md-whiteframe-2dp');
+
+						function buildPieces(location, el, part, icon) {
+							if (location[part] === '') {
+								return '';
+							} else if (location.iw[part]) {
+								switch(el){
+									case 'photo':
+										if (location.photo){
+											return '<div class="iw-photo" style="background-image: url(' + location.photo + ');"></div>';
+										} else {
+											return '';
+										}
+										break;
+									case 'iw-toolbar':
+										return '<div class="iw-toolbar"><h3 class="md-subhead">' + location.title + '</h3></div>';
+										break;
+									case 'div':
+										switch(part){
+											case 'email':
+												return '<div class="iw-details"><i class="material-icons" style="color:#4285f4;"><img src="//cdn.mapkit.io/v1/icons/' + icon + '.svg"/></i><span><a href="mailto:' + location.email + '" target="_blank">' + location.email + '</a></span></div>';
+												break;
+											case 'web':
+												return '<div class="iw-details"><i class="material-icons" style="color:#4285f4;"><img src="//cdn.mapkit.io/v1/icons/' + icon + '.svg"/></i><span><a href="' + location.web + '" target="_blank">' + location.web_formatted + '</a></span></div>';
+												break;
+											case 'desc':
+												return '<label class="iw-desc" for="cb_details"><input type="checkbox" id="cb_details"/><h3 class="iw-x-details">Details</h3><i class="material-icons toggle-open-details"><img src="//cdn.mapkit.io/v1/icons/' + icon + '.svg"/></i><p class="iw-x-details">' + location.desc + '</p></label>';
+												break;
+											default:
+												return '<div class="iw-details"><i class="material-icons"><img src="//cdn.mapkit.io/v1/icons/' + icon + '.svg"/></i><span>' + location[part] + '</span></div>';
+												break;
+										}
+										break;
+									case 'open_hours':
+										var items = '';
+										if (location.open_hours.length > 0){
+											for (var i = 0; i < location.open_hours.length; ++i) {
+												if (i !== 0){
+													items += '<li><strong>' + location.open_hours[i].day + '</strong><strong>' + location.open_hours[i].hours +'</strong></li>';
+												}
+												var first = '<li><label for="cb_hours"><input type="checkbox" id="cb_hours"/><strong>' + location.open_hours[0].day + '</strong><strong>' + location.open_hours[0].hours +'</strong><i class="material-icons toggle-open-hours"><img src="//cdn.mapkit.io/v1/icons/keyboard_arrow_down.svg"/></i><ul>' + items + '</ul></label></li>';
+											}
+											return '<div class="iw-list"><i class="material-icons first-material-icons" style="color:#4285f4;"><img src="//cdn.mapkit.io/v1/icons/' + icon + '.svg"/></i><ul>' + first + '</ul></div>';
+										} else {
+											return '';
+										}
+										break;
+								}
+							} else {
+								return '';
+							}
+						}
+
+						boxText.innerHTML =
+								buildPieces(location, 'photo', 'photo', '') +
+								buildPieces(location, 'iw-toolbar', 'title', '') +
+								buildPieces(location, 'div', 'address', 'location_on') +
+								buildPieces(location, 'div', 'web', 'public') +
+								buildPieces(location, 'div', 'email', 'email') +
+								buildPieces(location, 'div', 'tel', 'phone') +
+								buildPieces(location, 'div', 'int_tel', 'phone') +
+								buildPieces(location, 'open_hours', 'open_hours', 'access_time') +
+								buildPieces(location, 'div', 'desc', 'keyboard_arrow_down');
+
+						var myOptions = {
+							alignBottom: true,
+							content: boxText,
+							disableAutoPan: true,
+							maxWidth: 0,
+							pixelOffset: new google.maps.Size(-140, -40),
+							zIndex: null,
+							boxStyle: {
+								opacity: 1,
+								width: '280px'
+							},
+							closeBoxMargin: '0px 0px 0px 0px',
+							infoBoxClearance: new google.maps.Size(1, 1),
+							isHidden: false,
+							pane: 'floatPane',
+							enableEventPropagation: false
+						};
+
+						location.ib = new InfoBox(myOptions);
+						location.ib.open(map, marker);
+						location.infoWindowVisible = true;
+					}
+				});
+			}
+
+			function init() {
+				var mapOptions = {
+					center: new google.maps.LatLng(46.864768932038714,1.7639340422363148),
+					zoom: 8,
+					gestureHandling: 'auto',
+					fullscreenControl: false,
+					zoomControl: false,
+					disableDoubleClickZoom: true,
+					mapTypeControl: false,
+					scaleControl: false,
+					scrollwheel: true,
+					streetViewControl: false,
+					draggable : true,
+					clickableIcons: true,
+					mapTypeControlOptions: {
+						position: google.maps.ControlPosition.TOP_RIGHT
+					},
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					styles: [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"administrative","elementType":"labels","stylers":[{"saturation":"-100"}]},{"featureType":"administrative","elementType":"labels.text","stylers":[{"gamma":"0.75"}]},{"featureType":"administrative.neighborhood","elementType":"labels.text.fill","stylers":[{"lightness":"-37"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f9f9f9"}]},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"saturation":"-100"},{"lightness":"40"},{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"labels.text.fill","stylers":[{"saturation":"-100"},{"lightness":"-37"}]},{"featureType":"landscape.natural","elementType":"labels.text.stroke","stylers":[{"saturation":"-100"},{"lightness":"100"},{"weight":"2"}]},{"featureType":"landscape.natural","elementType":"labels.icon","stylers":[{"saturation":"-100"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"saturation":"-100"},{"lightness":"80"}]},{"featureType":"poi","elementType":"labels","stylers":[{"saturation":"-100"},{"lightness":"0"}]},{"featureType":"poi.attraction","elementType":"geometry","stylers":[{"lightness":"-4"},{"saturation":"-100"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"},{"visibility":"on"},{"saturation":"-95"},{"lightness":"62"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"lightness":20}]},{"featureType":"road","elementType":"labels","stylers":[{"saturation":"-100"},{"gamma":"1.00"}]},{"featureType":"road","elementType":"labels.text","stylers":[{"gamma":"0.50"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"saturation":"-100"},{"gamma":"0.50"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"},{"saturation":"-100"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"lightness":"-13"}]},{"featureType":"road.highway","elementType":"labels.icon","stylers":[{"lightness":"0"},{"gamma":"1.09"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"},{"saturation":"-100"},{"lightness":"47"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"lightness":"-12"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"saturation":"-100"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"},{"lightness":"77"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"lightness":"-5"},{"saturation":"-100"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"saturation":"-100"},{"lightness":"-15"}]},{"featureType":"transit.station.airport","elementType":"geometry","stylers":[{"lightness":"47"},{"saturation":"-100"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]},{"featureType":"water","elementType":"geometry","stylers":[{"saturation":"53"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#7a88b4"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"lightness":"-42"},{"saturation":"17"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"lightness":"61"}]}]
+				}
+				var mapElement = document.getElementById('mapkit-7900');
+				var map = new google.maps.Map(mapElement, mapOptions);
+				var locations = [
+					{"title":"Rue du Bât le Tan","address":"Rue du Bât le Tan, 36100 Issoudun, France","desc":"","tel":"","int_tel":"","email":"","web":"","web_formatted":"","open":"","time":"","lat":46.95529299999999,"lng":1.991694999999936,"vicinity":"Rue du Bât le Tan, 36100 Issoudun, France","open_hours":"","marker":{"url":"https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi_hdpi.png","scaledSize":{"width":25,"height":42,"j":"px","f":"px"},"origin":{"x":0,"y":0},"anchor":{"x":12,"y":42}},"iw":{"address":true,"desc":true,"email":true,"enable":true,"int_tel":true,"open":true,"open_hours":true,"photo":true,"tel":true,"title":true,"web":true}}
+				];
+
+				var layer = new google.maps.BicyclingLayer();
+				layer.setMap(map);
+
+				for (i = 0; i < locations.length; i++) {
+					marker = new google.maps.Marker({
+						icon: locations[i].marker,
+						position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+						map: map,
+						title: locations[i].title,
+						address: locations[i].address,
+						desc: locations[i].desc,
+						tel: locations[i].tel,
+						int_tel: locations[i].int_tel,
+						vicinity: locations[i].vicinity,
+						open: locations[i].open,
+						open_hours: locations[i].open_hours,
+						photo: locations[i].photo,
+						time: locations[i].time,
+						email: locations[i].email,
+						web: locations[i].web,
+						iw: locations[i].iw
+					});
+					markersArray.push(marker);
+
+					if (locations[i].iw.enable === true){
+						bindInfoWindow(marker, map, locations[i]);
+					}
+				}
+			}
+		</script>
+
+
         {% framework extras %}
         {% scripts %}
     </body>

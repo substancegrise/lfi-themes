@@ -55,7 +55,7 @@ header h1{
 	width:580px;
 	margin:0 auto;
 	float:none;
-    background: transparent url('../images/nav-graduee.png') no-repeat center 20px;
+    /*background: transparent url('../images/nav-graduee.png') no-repeat center 20px;*/
 }
 
 .navbar-default ul.navbar-nav li{
@@ -95,7 +95,7 @@ header .container-fluid{
 ul.nav.right-nav{
 	position:absolute;
 	right:0;
-	top:20px;	
+	top:50px;
 }
 
 ul.nav.right-nav li {

@@ -143,3 +143,29 @@ a.animated-button.victoria-two:after {
 .snip1226 .current a {
     transform: translateY(100%);
 }
+
+/* hover butt*/
+
+.opacity-color li img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.opacity-color li:hover img {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+
+}
+
+.color-lien ul li a{
+    color:#a6a6a6;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    text-decoration:none;
+}
+
+.color-lien ul li a:hover {
+    color:#e1261c;
+
+}

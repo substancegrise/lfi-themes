@@ -2928,9 +2928,9 @@ fieldset[disabled] a.btn {
     background-color: #fff; }
 
 .btn-info {
-  color: #fff;
-  background-color: #a6a6a6;
-  border-color: #999999; }
+  color: #333;
+  background-color: ;
+  border-color: ; }
   .btn-info:focus, .btn-info.focus {
     color: #fff;
     background-color: #8d8d8d;

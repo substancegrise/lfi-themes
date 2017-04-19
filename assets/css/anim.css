@@ -86,7 +86,7 @@ a.animated-button.victoria-two {
     border: 2px solid #e1261c;
 }
 a.animated-button.victoria-two:after {
-    background: #e1261c;
+    background-color: #e1261c;
     -moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
     -ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
     -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);

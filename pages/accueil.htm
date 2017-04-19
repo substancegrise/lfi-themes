@@ -14,6 +14,16 @@ detailsKeyColumn = ":slug"
 detailsUrlParameter = ":slug"
 pageNumber = "{{ :page }}"
 
+[builderList]
+modelClass = "Lfi\Formations\Models\Formation"
+scope = "-"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "formation-single"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+pageNumber = "{{ :page }}"
+
 [BlogPosts]
 pageNumber = "{{ :page }}"
 postsPerPage = 6
@@ -108,7 +118,7 @@ postPage = "blog/post"
 		                    {% for categorie in record.categories %}
 		                        <div class="category hidden-sm">{{categorie.formation_category| uppercase}}</div>
 		                    {% endfor %}
-	        				<img src="{{ record.imghome.thumb(320,202, {'mode':'crop'}) }}" />
+	        				<a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}"><img src="{{ record.imghome.thumb(320,202, {'mode':'crop'}) }}" /></a>
 	        				<a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}" data-toggle="tooltip" data-placement="bottom" title="VOIR LA FORMATION"><img class="view-icon" src="/themes/lfi/assets/images/icon-eye-blanc.png" /></a>
                     	</a>
 	                {% endif %}

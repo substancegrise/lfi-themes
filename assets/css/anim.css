@@ -1,5 +1,5 @@
 #mapkit-7900 {
-    height:350px;
+
     width:620px;
 }
 
@@ -168,4 +168,17 @@ a.animated-button.victoria-two:after {
 .color-lien ul li a:hover {
     color:#e1261c;
 
+}
+
+/* POP UP*/
+
+body .modal-dialog{
+    width: 1000px;
+}
+
+.legal_form{
+    text-align: center;
+}
+.modal-backdrop{
+    background-color: ;
 }

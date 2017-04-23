@@ -29,9 +29,9 @@
             </ul>
         </div>
     </div>
-	<a class="fixed-btn carto hidden-xs hidden-sm"><span>Cartographie<br /> des métiers</span</a>
+	<a data-toggle="modal" href="#content-cartographie" class="fixed-btn carto hidden-xs hidden-sm"><span>Cartographie<br /> des métiers</span</a>
 	<a href="storage/app/media/issoudun_brochure.pdf" target="_blank" class="fixed-btn docu hidden-xs hidden-sm"><span>Télécharger<br /> la documentation</span></a>
-	<a class="fixed-btn contact hidden-xs hidden-sm" id="contact"><span>Nous contacter</span></a>
+	<a data-toggle="modal" href="#content-confirmation" class="fixed-btn contact hidden-xs hidden-sm" id="contact"><span>Nous contacter</span></a>
 </nav>
 <header>
     <div class="header-content">
@@ -53,6 +53,50 @@
                 <div class="scroll-down">
                     <a href="#" class="pointe">DÉCOUVRIR</a>
                     <a class="apointe"><img src="/themes/lfi/assets/images/next_blanc.png" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="control-popup modal fade" id="content-confirmation" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">LFI FORMULAIRE</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="contactform">
+                        <div class="container clearfix">
+                            {% component 'contactForm' %}
+                            <p class="legal_form">
+                                Conformément à la loi « informatique et libertés » du 6 janvier 1978 modifiée en 2004, vous bénéficiez d'un droit d'accès et de rectification aux informations qui vous concernent
+                            </p>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="control-popup modal fade" id="content-cartographie" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">LFI CARTOGRAPHIE DES MÉTIERS</h4>
+                </div>
+                <div class="modal-body">
+
+                            <p class="legal_form">
+                                LA CARTOGRAPHIE DES MÉTIERS BIENTÔT EN LIGNE
+                            </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
                 </div>
             </div>
         </div>

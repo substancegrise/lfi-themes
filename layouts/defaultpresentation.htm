@@ -52,40 +52,35 @@ displayPhone = 1
 	       	</div>
 		</footer>
 
-        <!-- Scripts -->
 
-	<!-- Scripts SLICK-->
+    <!-- Scripts -->
 
-	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-	<script>
-
-		$(document).ready(function(){
-
-			$('.slider').slick({
-				slidesToShow: 6,
-				slidesToScroll: 1,
-				autoplay: true,
-				autoplaySpeed: 2000
-			});
-
-		});
-
-	</script>
-
-        <script src="{{ [
+    <script src="{{ [
             'assets/js/jquery.js',
             'assets/js/lfi.script.js',
             'assets/js/app.js',
-            'assets/js/bootstrap.js',
             'assets/js/slick.min.js',
         ]|theme }}"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('[data-toggle="tooltip"]').tooltip();
+
+    <!-- Scripts SLICK-->
+
+    <script>
+
+        $(document).ready(function(){
+
+            $('.slider').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                variableWidth: true
             });
-        </script>
+
+        });
+
+    </script>
+
         {% framework extras %}
         {% scripts %}
     </body>
